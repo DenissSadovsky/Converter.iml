@@ -1,21 +1,19 @@
 import java.util.Scanner;
-
 public class Converter {
     public static void main(String[] args) {
         boolean isIncorrect;
         boolean isTrue;
         System.out.println("Добро пожаловать в программу конвертации величин");
-        do{
-            System.out.println("\n***********************************************************************************\nИспользуйте следующие коды для выбора величины для конвертации: \n 1 - Валюта \n 2 - Длина \n 3 - Время \n 4 - Площадь \n 5 - Объём \n 6 - Скорость \n 7 - Температура \n 8 - Масса \n 9 - Завершить программу \n" );
+        do {
+            System.out.println("\n***********************************************************************************\nИспользуйте следующие коды для выбора величины для конвертации: \n 1 - Валюта \n 2 - Длина \n 3 - Время \n 4 - Площадь \n 5 - Объём \n 6 - Скорость \n 7 - Температура \n 8 - Масса \n 9 - Завершить программу \n");
 
             isTrue = true;
-            Scanner in = new Scanner(System.in);
             int choice = 0;
             do {
                 isIncorrect = false;
                 System.out.print("Выберите величину для конвертации:");
                 try {
-                    choice = Integer.parseInt(in.nextLine());
+                    choice = Integer.parseInt(scanner.nextLine());
                 } catch (Exception e) {
                     System.out.println("Вы ввели неподходящий код величины");
                     isIncorrect = true;
@@ -26,37 +24,104 @@ public class Converter {
                     isIncorrect = true;
                 }
             } while (isIncorrect);
-            if (choice == 1) {
-                Currency();
-            } else if (choice == 2) {
-                Length();
-            } else if (choice == 3) {
-                Time();
-            } else if (choice == 4) {
-                Square();
-            } else if (choice == 5) {
-                Value();
-            } else if (choice == 6) {
-                Speed();
-            } else if (choice == 7) {
-                Temperature();
-            } else if (choice == 8) {
-                Weight();
-            } else{
-                isTrue = false;
+
+            switch (choice) {
+                case 1 ->Currency();
+                case 2 -> Length();
+                case 3 -> Time();
+                case 4 -> Square();
+                case 5 -> Volume();
+                case 6 -> Speed();
+                case 7 -> Temperature();
+                case 8 -> Weight();
+                case 9 -> isTrue = false;
+                default -> {
+                    return;
+                }
             }
         } while (isTrue);
-//        boolean isIncorrect;
-//        do {
-//            isIncorrect = false;
-//            System.out.println("input data ");
-//            Scanner scan = new Scanner(System.in);
-//            if (scan.nextLine().equals("1")) Currency();
-//            else if (scan.nextLine().equals("2")) Length();
-//            else if (scan.nextLine().equals("3")) System.out.println(3);
-//            else isIncorrect = true;
-//        }while ((isIncorrect));
+        scanner.close();
     }
+
+    static final int MIN_ANYTHING = 1;
+    static final int MAX_CURRENCY = 8;
+    static final int MAX_LENGTH = 6;
+    static final int MAX_TIME = 8;
+    static final int MAX_SQUARE = 8;
+    static final int MAX_VOLUME = 7;
+    static final int MAX_SPEED = 6;
+    static final int MAX_TEMPERATURE = 4;
+    static final int MAX_WEIGHT = 7;
+
+    public static Scanner scanner= new Scanner(System.in);
+
+    public static int getChoice(int MAX_CHOICE, int MIN_CHOICE){
+        int choice = 0;
+        boolean isIncorrect;
+        do {
+            isIncorrect = false;
+            System.out.print("Выберите величину ввода:");
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.out.println("Вы ввели неподходящий код величины");
+                isIncorrect = true;
+            }
+            if (!isIncorrect && (choice < MIN_CHOICE) || (choice > MAX_CHOICE)) {
+                System.out.println("Вы ввели неподходящий код величины");
+                choice = 0;
+                isIncorrect = true;
+            }
+        } while (isIncorrect);
+        return choice;
+    }
+
+    public static int getOutput(int MAX_OUTPUT, int MIN_OUTPUT, int choice){
+        int output = 0;
+        boolean isIncorrect;
+        do {
+            isIncorrect = false;
+            System.out.print("Выберите величиу вывода:");
+            try {
+                output = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.out.println("Вы ввели неподходящий код величины");
+                isIncorrect = true;
+            }
+            if (!isIncorrect && (output < MIN_OUTPUT) || (output > MAX_OUTPUT)) {
+                System.out.println("Вы ввели неподходящий код величины");
+                output = 0;
+                isIncorrect = true;
+            }
+            if (!isIncorrect && choice == output) {
+                System.out.println("Та же величина не может быть конвертирована");
+                isIncorrect = true;
+            }
+        } while (isIncorrect);
+        return output;
+    }
+
+    public static double getInput(String inType){
+        double input = 0;
+        boolean isIncorrect;
+        do {
+            isIncorrect = false;
+            System.out.print("Введите число для конвертации из " + inType);
+            try {
+                input = Double.parseDouble(scanner.nextLine());
+            } catch (Exception e) {
+                System.out.println("Вы ввели неподходящее число");
+                isIncorrect = true;
+            }
+            if (!isIncorrect && (input < 0)) {
+                System.out.println("Вы ввели неподходяще число");
+                input = 0;
+                isIncorrect = true;
+            }
+        } while (isIncorrect);
+        return input;
+    }
+
     public static void Currency() {
         char us_dollar_sym = 36;
         char pound_sym = 163;
@@ -73,32 +138,20 @@ public class Converter {
         String bel_rub = "Белорусский рубль";
         String rus_rub = "Российский рубль";
         String zloty = "Польский злотый";
+
         double rate;
-        boolean isIncorrect;
         // Интерфейс
 
-        System.out.println("Используйте следующие коды для ввода выбранной валюты: \n 1 - Американский доллар \n 2 - Евро \n 3 - Английский фунт \n 4 - Японская йена \n 5 - Белорусский рубль \n 6 - Российский рубль \n 7 - Польский злотый \n 8 - Завершить конвертацию валют \n");
+        System.out.println("Вы выбрали конвертацию валют.");
+        System.out.println("Используйте следующие коды для ввода выбранной валюты:");
+        System.out.println(" 1 - Американский доллар \n 2 - Евро \n 3 - Английский фунт \n 4 - Японская йена \n 5 - Белорусский рубль \n 6 - Российский рубль \n 7 - Польский злотый \n 8 - Завершить конвертацию валют \n");
 
         //Ввод первой валюты и проверка
 
-        Scanner in = new Scanner(System.in);
-        int choice = 0;
-        do {
-            isIncorrect = false;
-            System.out.print("Выберите валюту ввода:");
-            try {
-                choice = Integer.parseInt(in.nextLine());
-            } catch (Exception e) {
-                System.out.println("Вы ввели неподходящий код валюты");
-                isIncorrect = true;
-            }
-            if (!isIncorrect && (choice < 1) || (choice > 8)) {
-                System.out.println("Вы ввели неподходящий код валюты");
-                choice = 0;
-                isIncorrect = true;
-            }
-        } while (isIncorrect);
+        int choice = getChoice(MAX_CURRENCY, MIN_ANYTHING);
+
         String inType;
+
         switch (choice) {
             case 1 -> inType = "Американский доллар >> " + us_dollar_sym;
             case 2 -> inType = "Евро >> " + euro_sym;
@@ -112,44 +165,10 @@ public class Converter {
             }
         }
         //Ввод второй валюты и проверка
-        int output = 0;
-        do {
-            isIncorrect = false;
-            System.out.print("Выберите валюту вывода:");
-            try {
-                output = Integer.parseInt(in.nextLine());
-            } catch (Exception e) {
-                System.out.println("Вы ввели неподходящий код валюты");
-                isIncorrect = true;
-            }
-            if (!isIncorrect && (output < 1) || (output > 7)) {
-                System.out.println("Вы ввели неподходящий код валюты");
-                output = 0;
-                isIncorrect = true;
-            }
-            if (!isIncorrect && choice == output) {
-                System.out.println("Та же валюта не может быть конвертирована");
-                isIncorrect = true;
-            }
-        } while (isIncorrect);
+        int output = getOutput(MAX_CURRENCY, MIN_ANYTHING, choice);
 
         //Ввод сумма перевода и проверка
-        double input = 0;
-        do {
-            isIncorrect = false;
-            System.out.print("Введите сумму для конвертации из " + inType);
-            try {
-                input = Double.parseDouble(in.nextLine());
-            } catch (Exception e) {
-                System.out.println("Вы ввели неподходящую сумму");
-                isIncorrect = true;
-            }
-            if (!isIncorrect && (input <= 0)) {
-                System.out.println("Вы ввели неподходящую сумму");
-                input = 0;
-                isIncorrect = true;
-            }
-        } while (isIncorrect);
+        double input = getInput(inType);
 
         //Доллар во все валюты
         if (choice == 1 && output == 2) {
@@ -349,31 +368,13 @@ public class Converter {
     }
     public static void Length() {
         double result;
-        boolean isIncorrect;
-
         // Интерфейс
         System.out.println("Вы выбрали перевод единиц длины");
-        System.out.println("Используйте следующие коды для ввода выбранной единицы длины:\n 1 - Километры \n 2 - Метры \n 3 - Дециметры \n 4 - Сантиметры \n 5 - Миллиметры");
+        System.out.println("Используйте следующие коды для ввода выбранной единицы длины:");
+        System.out.println(" 1 - Километры \n 2 - Метры \n 3 - Дециметры \n 4 - Сантиметры \n 5 - Миллиметры \n 6 - Завершить конвертацию единиц длины \n");
 
         //Ввод первой величины и проверка
-
-        Scanner in = new Scanner(System.in);
-        int choice = 0;
-        do {
-            isIncorrect = false;
-            System.out.print("Выберите величину ввода:");
-            try {
-                choice = Integer.parseInt(in.nextLine());
-            } catch (Exception e) {
-                System.out.println("Вы ввели неподходящий код величины");
-                isIncorrect = true;
-            }
-            if (!isIncorrect && (choice < 0) || (choice > 5)) {
-                System.out.println("Вы ввели неподходящий код величины");
-                choice = 0;
-                isIncorrect = true;
-            }
-        } while (isIncorrect);
+        int choice = getChoice(MAX_LENGTH, MIN_ANYTHING);
         String inType;
         switch (choice) {
             case 1 -> inType = "Километры >> ";
@@ -386,44 +387,10 @@ public class Converter {
             }
         }
         //Ввод второй величины и проверка
-        int output = 0;
-        do {
-            isIncorrect = false;
-            System.out.print("Выберите величиу вывода:");
-            try {
-                output = Integer.parseInt(in.nextLine());
-            } catch (Exception e) {
-                System.out.println("Вы ввели неподходящий код величины");
-                isIncorrect = true;
-            }
-            if (!isIncorrect && (output < 1) || (output > 5)) {
-                System.out.println("Вы ввели неподходящий код величины");
-                output = 0;
-                isIncorrect = true;
-            }
-            if (!isIncorrect && choice == output) {
-                System.out.println("Та же величина не может быть конвертирована");
-                isIncorrect = true;
-            }
-        } while (isIncorrect);
+        int output = getOutput(MAX_LENGTH, MIN_ANYTHING, choice);
 
         //Ввод суммы перевода
-        double input = 0;
-        do {
-            isIncorrect = false;
-            System.out.print("Введите число для конвертации из " + inType);
-            try {
-                input = Double.parseDouble(in.nextLine());
-            } catch (Exception e) {
-                System.out.println("Вы ввели неподходящее число");
-                isIncorrect = true;
-            }
-            if (!isIncorrect && (input <= 0)) {
-                System.out.println("Вы ввели неподходяще число");
-                input = 0;
-                isIncorrect = true;
-            }
-        } while (isIncorrect);
+        double input = getInput(inType);
 
         if (choice == 1 && output == 2) {
             double km_m_rate = 1000;
@@ -445,31 +412,14 @@ public class Converter {
     }
     public static void Time() {
         double result;
-        boolean isIncorrect;
 
         // Интерфейс
         System.out.println("Вы выбрали перевод единиц времени");
-        System.out.println("Используйте следующие коды для ввода выбранной единицы времени: \n 1 - Года  \n 2 - Недели \n 3 - Дни \n 4 - Часы \n 5 - Минуты \n 6 - Секунды \n 7 - Миллисекунлы \n");
+        System.out.println("Используйте следующие коды для ввода выбранной единицы времени:");
+        System.out.println("1 - Года  \n 2 - Недели \n 3 - Дни \n 4 - Часы \n 5 - Минуты \n 6 - Секунды \n 7 - Миллисекунлы \n 8 - Заверщить конвертацию единиц времени");
 
         //Ввод первой величины и проверка
-
-        Scanner in = new Scanner(System.in);
-        int choice = 0;
-        do {
-            isIncorrect = false;
-            System.out.print("Выберите величину ввода:");
-            try {
-                choice = Integer.parseInt(in.nextLine());
-            } catch (Exception e) {
-                System.out.println("Вы ввели неподходящий код величины");
-                isIncorrect = true;
-            }
-            if (!isIncorrect && (choice < 1) || (choice > 7)) {
-                System.out.println("Вы ввели неподходящий код величины");
-                choice = 0;
-                isIncorrect = true;
-            }
-        } while (isIncorrect);
+        int choice = getChoice(MAX_TIME, MIN_ANYTHING);
         String inType;
         switch (choice) {
             case 1 -> inType = "Годы >> ";
@@ -484,44 +434,10 @@ public class Converter {
             }
         }
         //Ввод второй величины и проверка
-        int output = 0;
-        do {
-            isIncorrect = false;
-            System.out.print("Выберите величиу вывода:");
-            try {
-                output = Integer.parseInt(in.nextLine());
-            } catch (Exception e) {
-                System.out.println("Вы ввели неподходящий код величины");
-                isIncorrect = true;
-            }
-            if (!isIncorrect && (output < 1) || (output > 7)) {
-                System.out.println("Вы ввели неподходящий код величины");
-                output = 0;
-                isIncorrect = true;
-            }
-            if (!isIncorrect && choice == output) {
-                System.out.println("Та же величина не может быть конвертирована");
-                isIncorrect = true;
-            }
-        } while (isIncorrect);
+        int output = getOutput(MAX_TIME, MIN_ANYTHING, choice);
 
         //Ввод суммы перевода
-        double input = 0;
-        do {
-            isIncorrect = false;
-            System.out.print("Введите число для конвертации из " + inType);
-            try {
-                input = Double.parseDouble(in.nextLine());
-            } catch (Exception e) {
-                System.out.println("Вы ввели неподходящее число");
-                isIncorrect = true;
-            }
-            if (!isIncorrect && (input <= 0)) {
-                System.out.println("Вы ввели неподходяще число");
-                input = 0;
-                isIncorrect = true;
-            }
-        } while (isIncorrect);
+        double input = getInput(inType);
 
         if (choice == 1 && output == 2) {
             double year_week_rate = 52.1428571;
@@ -551,13 +467,125 @@ public class Converter {
     }
     public static void Square() {
         double result;
-        boolean isIncorrect;
         System.out.println("Вы выбрали перевод единиц площади");
-        Scanner in = new Scanner(System.in);
-        int choice = 0;
+        System.out.println("Используйте следующие коды для ввода выбранной единицы площади:");
+        System.out.println(" 1 - Квадратный километры  \n 2 - Гектары \n 3 - Ары \n 4 - Квадратные метры \n 5 - Квадратные дециметры \n 6 - Квадратные сантиметры \n 7 - Квадратные миллиметры \n 8 - Завершить конвертацию единиц площади \n");
+
+
+        int choice = getChoice(MAX_SQUARE, MIN_ANYTHING);
+        String inType;
+        switch (choice) {
+            case 1 -> inType = "Квадратные километры >> ";
+            case 2 -> inType = "Гектары >> ";
+            case 3 -> inType = "Ары >> ";
+            case 4 -> inType = "Квадратные метры >> ";
+            case 5 -> inType = "Квадратные дециметры >> ";
+            case 6 -> inType = "Квадратные сантиметры >> ";
+            case 7 -> inType = "Квадратные миллиметры >> ";
+            default -> {
+                return;
+            }
+        }
+        //Ввод второй величины и проверка
+        int output = getOutput(MAX_SQUARE, MIN_ANYTHING, choice);
+
+        //Ввод суммы перевода
+        double input = getInput(inType);
     }
-    public static void Value() {}
-    public static void Speed() {}
-    public static void Temperature() {}
-    public static void Weight() {}
+    public static void Volume() {
+        double result;
+        System.out.println("Вы выбрали перевод единиц объёма");
+        System.out.println("Используйте следующие коды для ввода выбранной единицы объёма:");
+        System.out.println(" 1 - Кубические метры  \n 2 - Кубические дециметры \n 3 - Кубические сантиметры \n 4 - Кубические миллиметры \n 5 - Литры \n 6 - Миллилитры \n 7 - Завершить конвертацию единиц объёма \n");
+
+        int choice = getChoice(MAX_VOLUME, MIN_ANYTHING);
+        String inType;
+        switch (choice) {
+            case 1 -> inType = "Кубические метры >> ";
+            case 2 -> inType = "Кубические дециметры >> ";
+            case 3 -> inType = "Кубические сантиметры >> ";
+            case 4 -> inType = "Кубические миллиметры >> ";
+            case 5 -> inType = "Литры >> ";
+            case 6 -> inType = "Миллилитры >> ";
+            default -> {
+                return;
+            }
+        }
+        //Ввод второй величины и проверка
+        int output = getOutput(MAX_VOLUME, MIN_ANYTHING, choice);
+
+        //Ввод суммы перевода
+        double input = getInput(inType);
+    }
+    public static void Speed() {
+        double result;
+        System.out.println("Вы выбрали перевод единиц скорости");
+        System.out.println("Используйте следующие коды для ввода выбранной единицы скорости:");
+        System.out.println(" 1 - Метры в секунду  \n 2 - Километры в час \n 3 - Километры в секунду \n 4 - Мили в час \n 5 - Футы в секунду \n 6 - Завершить конвертацию единиц скорости \n");
+
+        int choice = getChoice(MAX_SPEED, MIN_ANYTHING);
+        String inType;
+        switch (choice) {
+            case 1 -> inType = "Метры в секунду >> ";
+            case 2 -> inType = "Километры в час >> ";
+            case 3 -> inType = "Километры в секунду >> ";
+            case 4 -> inType = "Мили в час >> ";
+            case 5 -> inType = "Футы в секунду >> ";
+            default -> {
+                return;
+            }
+        }
+        //Ввод второй величины и проверка
+        int output = getOutput(MAX_SPEED, MIN_ANYTHING, choice);
+
+        //Ввод суммы перевода
+        double input = getInput(inType);
+    }
+    public static void Temperature() {
+        double result;
+        System.out.println("Вы выбрали перевод единиц температуры");
+        System.out.println("Используйте следующие коды для ввода выбранной единицы температуры:");
+        System.out.println(" 1 - Цельсий  \n 2 - Фаренгейт \n 3 - Кельвин \n 4 - Завершить конвертацию единиц температуры \n");
+
+        int choice = getChoice(MAX_TEMPERATURE, MIN_ANYTHING);
+        String inType;
+        switch (choice) {
+            case 1 -> inType = "Цельсий >> ";
+            case 2 -> inType = "Фаренгейт >> ";
+            case 3 -> inType = "Кельвин >> ";
+            default -> {
+                return;
+            }
+        }
+        //Ввод второй величины и проверка
+        int output = getOutput(MAX_TEMPERATURE, MIN_ANYTHING, choice);
+
+        //Ввод суммы перевода
+        double input = getInput(inType);
+    }
+    public static void Weight() {
+        double result;
+        System.out.println("Вы выбрали перевод единиц массы");
+        System.out.println("Используйте следующие коды для ввода выбранной единицы массы:");
+        System.out.println(" 1 - Тонны  \n 2 - Центнеры \n 3 - Килограммы \n 4 - Граммы \n 5 - Миллиграммы \n 6 - Фунты \n 7 - Завершить конвертацию единиц массы \n");
+
+        int choice = getChoice(MAX_WEIGHT, MIN_ANYTHING);
+        String inType;
+        switch (choice) {
+            case 1 -> inType = "Тонны >> ";
+            case 2 -> inType = "Центнеры >> ";
+            case 3 -> inType = "Килограммы >> ";
+            case 4 -> inType = "Граммы >> ";
+            case 5 -> inType = "Миллиграммы >> ";
+            case 6 -> inType = "Фунты >> ";
+            default -> {
+                return;
+            }
+        }
+        //Ввод второй величины и проверка
+        int output = getOutput(MAX_WEIGHT, MIN_ANYTHING, choice);
+
+        //Ввод суммы перевода
+        double input = getInput(inType);
+    }
 }
