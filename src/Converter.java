@@ -450,9 +450,101 @@ public class Converter {
             }
             //Метр во все величины
             case 2 -> {
-                switch (output){
+                switch (output) {
                     case 1 -> {
-
+                        double m_km_rate = 0.001;
+                        result = input * m_km_rate;
+                        System.out.printf("Метр в километр: %f м = %.0f км\n", input, result);
+                    }
+                    case 3 -> {
+                        double m_dcm_rate = 10;
+                        result = input * m_dcm_rate;
+                        System.out.printf("Метр в дециметр: %f м = %.0f дцм\n", input, result);
+                    }
+                    case 4 -> {
+                        double m_cm_rate = 100;
+                        result = input * m_cm_rate;
+                        System.out.printf("Метр в сантиметр: %f м = %.0f см\n", input, result);
+                    }
+                    case 5 -> {
+                        double m_mm_rate = 1000;
+                        result = input * m_mm_rate;
+                        System.out.printf("Метр в миллиметр: %f м = %.0f мм\n", input, result);
+                    }
+                }
+            }
+            //Дециметр во все величины
+            case 3 -> {
+                switch (output) {
+                    case 1 -> {
+                        double dcm_km_rate = 0.0001;
+                        result = input * dcm_km_rate;
+                        System.out.printf("Дециметр в километр: %f дцм = %.0f км\n", input, result);
+                    }
+                    case 2 -> {
+                        double dcm_m_rate = 0.1;
+                        result = input * dcm_m_rate;
+                        System.out.printf("Дециметр в метр: %f дцм = %.0f м\n", input, result);
+                    }
+                    case 4 -> {
+                        double dcm_cm_rate = 10;
+                        result = input * dcm_cm_rate;
+                        System.out.printf("Дециметр в сантиметр: %f дцм = %.0f см\n", input, result);
+                    }
+                    case 5 -> {
+                        double dcm_mm_rate = 100;
+                        result = input * dcm_mm_rate;
+                        System.out.printf("Дециметр в миллиметр: %f дцм = %.0f мм\n", input, result);
+                    }
+                }
+            }
+            //Сантиметр во все величины
+            case 4 -> {
+                switch (output) {
+                    case 1 -> {
+                        double cm_km_rate = 0.00001;
+                        result = input * cm_km_rate;
+                        System.out.printf("Сантиметр в километр: %f см = %.0f км\n", input, result);
+                    }
+                    case 2 -> {
+                        double cm_m_rate = 0.01;
+                        result = input * cm_m_rate;
+                        System.out.printf("Сантиметр в метр: %f см = %.0f м\n", input, result);
+                    }
+                    case 3 -> {
+                        double cm_dcm_rate = 0.1;
+                        result = input * cm_dcm_rate;
+                        System.out.printf("Сантиметр в децииметр: %f см = %.0f дцм\n", input, result);
+                    }
+                    case 5 -> {
+                        double cm_mm_rate = 10;
+                        result = input * cm_mm_rate;
+                        System.out.printf("Сантиметр в миллиметр: %f см = %.0f мм\n", input, result);
+                    }
+                }
+            }
+            //Миллиметр во все величины
+            case 5 -> {
+                switch (output) {
+                    case 1 -> {
+                        double mm_km_rate = 0.000001;
+                        result = input * mm_km_rate;
+                        System.out.printf("Миллиметр в километр: %f мм = %.0f км\n", input, result);
+                    }
+                    case 2 -> {
+                        double mm_m_rate = 0.001;
+                        result = input * mm_m_rate;
+                        System.out.printf("Миллиметр в метр: %f мм = %.0f м\n", input, result);
+                    }
+                    case 3 -> {
+                        double mm_dcm_rate = 0.01;
+                        result = input * mm_dcm_rate;
+                        System.out.printf("Миллиметр в децииметр: %f мм = %.0f дцм\n", input, result);
+                    }
+                    case 4 -> {
+                        double mm_cm_rate = 0.1;
+                        result = input * mm_cm_rate;
+                        System.out.printf("Миллиметр в сантиметр: %f мм = %.0f см\n", input, result);
                     }
                 }
             }
