@@ -1,44 +1,6 @@
 import java.util.Scanner;
 public class Converter {
-    public static void main(String[] args) {
-        boolean isIncorrect;
-        boolean isTrue;
-        System.out.println("Добро пожаловать в программу конвертации величин");
-        do {
-            System.out.println("\n***********************************************************************************\nИспользуйте следующие коды для выбора величины для конвертации: \n 1 - Валюта \n 2 - Длина \n 3 - Время \n 4 - Площадь \n 5 - Объём \n 6 - Скорость \n 7 - Температура \n 8 - Масса \n 9 - Завершить программу \n");
-
-            isTrue = true;
-            int choice = 0;
-            do {
-                isIncorrect = false;
-                System.out.print("Выберите величину для конвертации:");
-                try {
-                    choice = Integer.parseInt(scanner.nextLine());
-                } catch (Exception e) {
-                    System.out.println("Вы ввели неподходящий код величины");
-                    isIncorrect = true;
-                }
-                if (!isIncorrect && (choice < 1) || (choice > 9)) {
-                    System.out.println("Вы ввели неподходящий код величины");
-                    choice = 0;
-                    isIncorrect = true;
-                }
-            } while (isIncorrect);
-
-            switch (choice) {
-                case 1 ->Currency();
-                case 2 -> Length();
-                case 3 -> Time();
-                case 4 -> Square();
-                case 5 -> Volume();
-                case 6 -> Speed();
-                case 7 -> Temperature();
-                case 8 -> Weight();
-                case 9 -> isTrue = false;
-            }
-        } while (isTrue);
-        scanner.close();
-    }
+    public static Scanner scanner= new Scanner(System.in);
 
     static final int MIN_ANYTHING = 1;
     static final int MAX_CURRENCY = 8;
@@ -49,8 +11,6 @@ public class Converter {
     static final int MAX_SPEED = 6;
     static final int MAX_TEMPERATURE = 4;
     static final int MAX_WEIGHT = 7;
-
-    public static Scanner scanner= new Scanner(System.in);
 
     public static int getChoice(int MAX_CHOICE, int MIN_CHOICE){
         int choice = 0;
@@ -958,17 +918,18 @@ public class Converter {
         double input = getInput(inType);
     }
     public static void Temperature() {
+        char grad = 176;
         double result;
         System.out.println("Вы выбрали перевод единиц температуры");
         System.out.println("Используйте следующие коды для ввода выбранной единицы температуры:");
-        System.out.println(" 1 - Цельсий  \n 2 - Фаренгейт \n 3 - Кельвин \n 4 - Завершить конвертацию единиц температуры \n");
+        System.out.println(" 1 - Градусы Цельсия  \n 2 - Градусы Фаренгейта \n 3 - Кельвины \n 4 - Завершить конвертацию единиц температуры \n");
 
         int choice = getChoice(MAX_TEMPERATURE, MIN_ANYTHING);
         String inType;
         switch (choice) {
-            case 1 -> inType = "Цельсий >> ";
-            case 2 -> inType = "Фаренгейт >> ";
-            case 3 -> inType = "Кельвин >> ";
+            case 1 -> inType = "Градусы Цельсия >> ";
+            case 2 -> inType = "Градусы Фаренгейта >> ";
+            case 3 -> inType = "Кельвины >> ";
             default -> {
                 return;
             }
@@ -980,6 +941,48 @@ public class Converter {
 
         //Ввод суммы перевода
         double input = getInput(inType);
+
+        switch (choice) {
+            //Градусы Цельсия во все величины
+            case 1 -> {
+                switch (output) {
+                    case 2 -> {
+                        result = (input * 9 / 5) + 32;
+                        System.out.printf("Градусы Цельсия в Градусы Фаренгейта: %f %sC = %.2f %sF\n", input, grad, result, grad);
+                    }
+                    case 3 -> {
+                        result = input + 273.15;
+                        System.out.printf("Градусы Цельсия в Кельвины: %f %sC = %.2f K\n", input,grad, result);
+                    }
+                }
+            }
+            //Градусы Фаренгейта во все величины
+            case 2 -> {
+                switch (output) {
+                    case 1 -> {
+                        result = (input - 32) * 5 / 9;
+                        System.out.printf("Градусы Фаренгейта в Градусы Цельсия: %f %sF = %.2f %sC\n", input, grad, result, grad);
+                    }
+                    case 3 -> {
+                        result = (input - 32) * 5 / 9 + 273.15;
+                        System.out.printf("Градусы Фаренгейта в Кельвины: %f %sF = %.2f K\n", input,grad, result);
+                    }
+                }
+            }
+            //Кельвины во все величины
+            case 3 -> {
+                switch (output) {
+                    case 1 -> {
+                        result = input - 273.15;
+                        System.out.printf("Кельвины в Градусы Цельсия: %f K = %.2f %sC\n", input, result, grad);
+                    }
+                    case 2 -> {
+                        result = (input - 273.15) * 9 / 5 + 32;
+                        System.out.printf("Кельвины в Градусы Фаренгейта: %f K= %.2f %sF\n", input, result, grad);
+                    }
+                }
+            }
+        }
     }
     public static void Weight() {
         double result;
@@ -1007,5 +1010,45 @@ public class Converter {
 
         //Ввод суммы перевода
         double input = getInput(inType);
+    }
+
+    public static void main(String[] args) {
+        boolean isIncorrect;
+        boolean isTrue;
+        System.out.println("Добро пожаловать в программу конвертации величин");
+        do {
+            System.out.println("\n***********************************************************************************\nИспользуйте следующие коды для выбора величины для конвертации: \n 1 - Валюта \n 2 - Длина \n 3 - Время \n 4 - Площадь \n 5 - Объём \n 6 - Скорость \n 7 - Температура \n 8 - Масса \n 9 - Завершить программу \n");
+
+            isTrue = true;
+            int choice = 0;
+            do {
+                isIncorrect = false;
+                System.out.print("Выберите величину для конвертации:");
+                try {
+                    choice = Integer.parseInt(scanner.nextLine());
+                } catch (Exception e) {
+                    System.out.println("Вы ввели неподходящий код величины");
+                    isIncorrect = true;
+                }
+                if (!isIncorrect && (choice < 1) || (choice > 9)) {
+                    System.out.println("Вы ввели неподходящий код величины");
+                    choice = 0;
+                    isIncorrect = true;
+                }
+            } while (isIncorrect);
+
+            switch (choice) {
+                case 1 ->Currency();
+                case 2 -> Length();
+                case 3 -> Time();
+                case 4 -> Square();
+                case 5 -> Volume();
+                case 6 -> Speed();
+                case 7 -> Temperature();
+                case 8 -> Weight();
+                case 9 -> isTrue = false;
+            }
+        } while (isTrue);
+        scanner.close();
     }
 }
