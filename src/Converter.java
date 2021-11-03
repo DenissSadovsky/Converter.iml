@@ -35,9 +35,6 @@ public class Converter {
                 case 7 -> Temperature();
                 case 8 -> Weight();
                 case 9 -> isTrue = false;
-                default -> {
-                    return;
-                }
             }
         } while (isTrue);
         scanner.close();
@@ -140,6 +137,7 @@ public class Converter {
         String zloty = "Польский злотый";
 
         double rate;
+
         // Интерфейс
 
         System.out.println("Вы выбрали конвертацию валют.");
@@ -150,7 +148,7 @@ public class Converter {
 
         int choice = getChoice(MAX_CURRENCY, MIN_ANYTHING);
 
-        String inType;
+        String inType = "";
 
         switch (choice) {
             case 1 -> inType = "Американский доллар >> " + us_dollar_sym;
@@ -160,9 +158,6 @@ public class Converter {
             case 5 -> inType = "Белорусский рубль >> " + bel_rub_sym;
             case 6 -> inType = "Российский рубль >> " + rus_rub_sym;
             case 7 -> inType = "Польский злотый >> " + zloty_sym;
-            default -> {
-                return;
-            }
         }
 
         //Ввод второй валюты и проверка
@@ -624,8 +619,6 @@ public class Converter {
                 }
             }
         }
-
-
     }
     public static void Square() {
         double result;
@@ -650,11 +643,266 @@ public class Converter {
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_SQUARE, MIN_ANYTHING, choice);
-        if(output == 8)
+        if (output == 8)
             return;
 
         //Ввод суммы перевода
         double input = getInput(inType);
+
+        switch (choice) {
+            //Квадратные километры во все величины
+            case 1 -> {
+                switch (output) {
+                    case 2 -> {
+                        double sqrkm_gek_rate = 100;
+                        result = input * sqrkm_gek_rate;
+                        System.out.printf("Квадратные километры в Гектары: %f кв.км = %.2f гектаров\n", input, result);
+                    }
+                    case 3 -> {
+                        double sqrkm_ar_rate = 1E4;
+                        result = input * sqrkm_ar_rate;
+                        System.out.printf("Квадратные километры в Ары: %f кв.км = %.2f ар\n", input, result);
+                    }
+                    case 4 -> {
+                        double sqrkm_sqrm_rate = 1E6;
+                        result = input * sqrkm_sqrm_rate;
+                        System.out.printf("Квадратные километры в Квадратные метры: %f кв.км = %.2f кв.м\n", input, result);
+                    }
+                    case 5 -> {
+                        double sqrkm_sqrdm_rate = 1E8;
+                        result = input * sqrkm_sqrdm_rate;
+                        System.out.printf("Квадратный километры в Квадратные дециметры: %f кв.км = %.2f кв.дм\n", input, result);
+                    }
+                    case 6 -> {
+                        double sqrkm_sqrcm_rate = 1E10;
+                        result = input * sqrkm_sqrcm_rate;
+                        System.out.printf("Квадратные километры в Квадратные сантиметры: %f кв.км = %.2f кв.см\n", input, result);
+                    }
+                    case 7 -> {
+                        double sqrkm_sqrmm_rate = 1E12;
+                        result = input * sqrkm_sqrmm_rate;
+                        System.out.printf("Квадратные километры в Квадратные миллиметры: %f кв.км = %.2f кв.мм\n", input, result);
+                    }
+
+                }
+            }
+            //Гектары во все величины
+            case 2 -> {
+                switch (output) {
+                    case 1 -> {
+                        double gek_sqrkm_rate = 0.01;
+                        result = input * gek_sqrkm_rate;
+                        System.out.printf("Гектары в квадратные километры: %f гектаров = %.2f кв.км\n", input, result);
+                    }
+                    case 3 -> {
+                        double gek_ar_rate = 100;
+                        result = input * gek_ar_rate;
+                        System.out.printf("Гектары в квадратные в Ары: %f гектаров = %.2f ар\n", input, result);
+                    }
+                    case 4 -> {
+                        double gek_sqrm_rate = 1E4;
+                        result = input * gek_sqrm_rate;
+                        System.out.printf("Гектары в квадратные метры: %f гектаров = %.2f кв.м\n", input, result);
+                    }
+                    case 5 -> {
+                        double gek_sqrdm_rate = 1E6;
+                        result = input * gek_sqrdm_rate;
+                        System.out.printf("Гектары в квадратные дециметры: %f гектаров = %.2f кв.дм\n", input, result);
+                    }
+                    case 6 -> {
+                        double gek_sqrcm_rate = 1E8;
+                        result = input * gek_sqrcm_rate;
+                        System.out.printf("Гектары в квадратные сантиметры: %f гектаров = %.2f кв.см\n", input, result);
+                    }
+                    case 7 -> {
+                        double gek_sqrmm_rate = 1E10;
+                        result = input * gek_sqrmm_rate;
+                        System.out.printf("Гектары в квадратные миллиметры: %f гектаров = %.2f кв.мм\n", input, result);
+                    }
+
+                }
+            }
+            //Ары во все величины
+            case 3 -> {
+                switch (output) {
+                    case 1 -> {
+                        double ar_sqrkm_rate = 1E-4;
+                        result = input * ar_sqrkm_rate;
+                        System.out.printf("Ары в квадратные километры: %f ар = %.2f кв.км\n", input, result);
+                    }
+                    case 2 -> {
+                        double ar_gek_rate = 0.01;
+                        result = input * ar_gek_rate;
+                        System.out.printf("Ары в гектары: %f ар = %.2f гектаров\n", input, result);
+                    }
+                    case 4 -> {
+                        double ar_sqrm_rate = 100;
+                        result = input * ar_sqrm_rate;
+                        System.out.printf("Ары в квадратные метры: %f ар = %.2f кв.м\n", input, result);
+                    }
+                    case 5 -> {
+                        double ar_sqrdm_rate = 1E4;
+                        result = input * ar_sqrdm_rate;
+                        System.out.printf("Ары в квадратные дециметры: %f ар = %.2f кв.дм\n", input, result);
+                    }
+                    case 6 -> {
+                        double ar_sqrcm_rate = 1E6;
+                        result = input * ar_sqrcm_rate;
+                        System.out.printf("Ары в квадратные сантиметры: %f ар = %.2f кв.см\n", input, result);
+                    }
+                    case 7 -> {
+                        double ar_sqrmm_rate = 1E8;
+                        result = input * ar_sqrmm_rate;
+                        System.out.printf("Ары в квадратные миллиметры: %f ар = %.2f кв.мм\n", input, result);
+                    }
+
+                }
+            }
+            //Квадратные метры во все велчины
+            case 4 -> {
+                switch (output) {
+                    case 1 -> {
+                        double sqrm_sqrkm_rate = 1E-6;
+                        result = input * sqrm_sqrkm_rate;
+                        System.out.printf("Квадратные метры в квадратные километры: %f кв.м = %.2f кв.км\n", input, result);
+                    }
+                    case 2 -> {
+                        double sqrm_gek_rate = 1E-4;
+                        result = input * sqrm_gek_rate;
+                        System.out.printf("Квадратные метры в гектары: %f кв.м = %.2f гектаров\n", input, result);
+                    }
+                    case 3 -> {
+                        double sqrm_ar_rate = 0.01;
+                        result = input * sqrm_ar_rate;
+                        System.out.printf("Квадратные метры в ары: %f кв.м = %.2f ар\n", input, result);
+                    }
+                    case 5 -> {
+                        double sqrm_sqrdm_rate = 10;
+                        result = input * sqrm_sqrdm_rate;
+                        System.out.printf("Квадратные метры в квадратные дециметры: %f кв.м = %.2f кв.дм\n", input, result);
+                    }
+                    case 6 -> {
+                        double sqrm_sqrcm_rate = 1E4;
+                        result = input * sqrm_sqrcm_rate;
+                        System.out.printf("Квадратные метры в квадратные сантиметры: %f кв.м = %.2f кв.см\n", input, result);
+                    }
+                    case 7 -> {
+                        double sqrm_sqrmm_rate = 1E6;
+                        result = input * sqrm_sqrmm_rate;
+                        System.out.printf("Квадратные метры в квадратные миллиметры: %f кв.м = %.2f кв.мм\n", input, result);
+                    }
+
+                }
+            }
+            //Квадратные дециметры во все велчины
+            case 5 -> {
+                switch (output) {
+                    case 1 -> {
+                        double sqrdm_sqrkm_rate = 1E-8;
+                        result = input * sqrdm_sqrkm_rate;
+                        System.out.printf("Квадратные дециметры в квадратные километры: %f кв.дм = %.2f кв.км\n", input, result);
+                    }
+                    case 2 -> {
+                        double sqrdm_gek_rate = 1E-6;
+                        result = input * sqrdm_gek_rate;
+                        System.out.printf("Квадратные дециметры в гектары: %f кв.дм = %.2f гектаров\n", input, result);
+                    }
+                    case 3 -> {
+                        double sqrdm_ar_rate = 1E-4;
+                        result = input * sqrdm_ar_rate;
+                        System.out.printf("Квадратные дециметры в ары: %f кв.дм = %.2f ар\n", input, result);
+                    }
+                    case 4 -> {
+                        double sqrdm_sqrm_rate = 0.01;
+                        result = input * sqrdm_sqrm_rate;
+                        System.out.printf("Квадратные дециметры в квадратные метры: %f кв.дм = %.2f кв.м\n", input, result);
+                    }
+                    case 6 -> {
+                        double sqrdm_sqrcm_rate = 100;
+                        result = input * sqrdm_sqrcm_rate;
+                        System.out.printf("Квадратные дециметры в квадратные сантиметры: %f кв.дм = %.2f кв.см\n", input, result);
+                    }
+                    case 7 -> {
+                        double sqrdm_sqrmm_rate = 1E4;
+                        result = input * sqrdm_sqrmm_rate;
+                        System.out.printf("Квадратные дециметры в квадратные миллиметры: %f кв.дм = %.2f кв.мм\n", input, result);
+                    }
+
+                }
+            }
+            //Квадратные сантиметры во все велчины
+            case 6 -> {
+                switch (output) {
+                    case 1 -> {
+                        double sqrcm_sqrkm_rate = 1E-10;
+                        result = input * sqrcm_sqrkm_rate;
+                        System.out.printf("Квадратные сантиметры в квадратные километры: %f кв.см = %.2f кв.км\n", input, result);
+                    }
+                    case 2 -> {
+                        double sqrcm_gek_rate = 1E-8;
+                        result = input * sqrcm_gek_rate;
+                        System.out.printf("Квадратные сантиметры в гектары: %f кв.см = %.2f гектаров\n", input, result);
+                    }
+                    case 3 -> {
+                        double sqrcm_ar_rate = 1E-6;
+                        result = input * sqrcm_ar_rate;
+                        System.out.printf("Квадратные сантиметры в ары: %f кв.см = %.2f ар\n", input, result);
+                    }
+                    case 4 -> {
+                        double sqrcm_sqrm_rate = 1E-4;
+                        result = input * sqrcm_sqrm_rate;
+                        System.out.printf("Квадратные сантиметры в квадратные метры: %f кв.см = %.2f кв.м\n", input, result);
+                    }
+                    case 5 -> {
+                        double sqrcm_sqrdm_rate = 0.01;
+                        result = input * sqrcm_sqrdm_rate;
+                        System.out.printf("Квадратные сантиметры в квадратные децииметры: %f кв.см = %.2f кв.дм\n", input, result);
+                    }
+                    case 7 -> {
+                        double sqrcm_sqrmm_rate = 100;
+                        result = input * sqrcm_sqrmm_rate;
+                        System.out.printf("Квадратные сантиметры в квадратные миллиметры: %f кв.см = %.2f кв.мм\n", input, result);
+                    }
+
+                }
+            }
+            //Квадратные сантиметры во все велчины
+            case 7 -> {
+                switch (output) {
+                    case 1 -> {
+                        double sqrmm_sqrkm_rate = 1E-12;
+                        result = input * sqrmm_sqrkm_rate;
+                        System.out.printf("Квадратные миллиметры в квадратные километры: %f кв.мм = %.2f кв.км\n", input, result);
+                    }
+                    case 2 -> {
+                        double sqrmm_gek_rate = 1E-10;
+                        result = input * sqrmm_gek_rate;
+                        System.out.printf("Квадратные миллиметры в гектары: %f кв.мм = %.2f гектаров\n", input, result);
+                    }
+                    case 3 -> {
+                        double sqrmm_ar_rate = 1E-8;
+                        result = input * sqrmm_ar_rate;
+                        System.out.printf("Квадратные миллиметры в ары: %f кв.мм = %.2f ар\n", input, result);
+                    }
+                    case 4 -> {
+                        double sqrmm_sqrm_rate = 1E-6;
+                        result = input * sqrmm_sqrm_rate;
+                        System.out.printf("Квадратные миллиметры в квадратные метры: %f кв.мм = %.2f кв.м\n", input, result);
+                    }
+                    case 5 -> {
+                        double sqrmm_sqrdm_rate = 1E-4;
+                        result = input * sqrmm_sqrdm_rate;
+                        System.out.printf("Квадратные миллиметры в квадратные децииметры: %f кв.мм = %.2f кв.дм\n", input, result);
+                    }
+                    case 6 -> {
+                        double sqrmm_sqrcm_rate = 0.01;
+                        result = input * sqrmm_sqrcm_rate;
+                        System.out.printf("Квадратные миллииметры в квадратные сантииметры: %f кв.мм = %.2f кв.см\n", input, result);
+                    }
+
+                }
+            }
+        }
     }
     public static void Volume() {
         double result;
