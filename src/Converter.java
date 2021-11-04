@@ -96,7 +96,7 @@ public class Converter {
         String rus_rub = "Российский рубль";
         String zloty = "Польский злотый";
 
-        double rate;
+        double result;
 
         // Интерфейс
 
@@ -130,6 +130,8 @@ public class Converter {
         //Ввод сумма перевода и проверка
         double input = getInput(inType);
 
+        double rate;
+
         //Конвертация величин
         switch (choice) {
             //Доллар во все валюты
@@ -137,33 +139,33 @@ public class Converter {
                 switch (output) {
                     case 2 -> {
                         double dollar_euro_rate = 0.852988;
-                        rate = input * dollar_euro_rate;
-                        System.out.printf("%s" + input + " по курсу " + dollar_euro_rate + " Американский доллар в %s = %s%.2f\n", us_dollar_sym, euro, euro_sym, rate);
+                        result = input * dollar_euro_rate;
+                        System.out.printf("%s" + input + " по курсу " + dollar_euro_rate + " Американский доллар в %s = %s%.2f\n", us_dollar_sym, euro, euro_sym, result);
                     }
                     case 3 -> {
                         double dollar_pound_rate = 0.732562;
-                        rate = input * dollar_pound_rate;
-                        System.out.printf("%s" + input + " по курсу " + dollar_pound_rate + " Американский доллар в %s = %s%.2f\n", us_dollar_sym, pound, pound_sym, rate);
+                        result = input * dollar_pound_rate;
+                        System.out.printf("%s" + input + " по курсу " + dollar_pound_rate + " Американский доллар в %s = %s%.2f\n", us_dollar_sym, pound, pound_sym, result);
                     }
                     case 4 -> {
                         double dollar_yen_rate = 109.633;
-                        rate = input * dollar_yen_rate;
-                        System.out.printf("%s" + input + " по курсу " + dollar_yen_rate + " Американский доллар в %s = %s%.2f\n", us_dollar_sym, yen, yen_sym, rate);
+                        result = input * dollar_yen_rate;
+                        System.out.printf("%s" + input + " по курсу " + dollar_yen_rate + " Американский доллар в %s = %s%.2f\n", us_dollar_sym, yen, yen_sym, result);
                     }
                     case 5 -> {
                         double dollar_bel_rub_rate = 2.50223;
-                        rate = input * dollar_bel_rub_rate;
-                        System.out.printf("%s" + input + " по курсу " + dollar_bel_rub_rate + " Американский доллар в %s = %s%.2f\n", us_dollar_sym, bel_rub, bel_rub_sym, rate);
+                        result = input * dollar_bel_rub_rate;
+                        System.out.printf("%s" + input + " по курсу " + dollar_bel_rub_rate + " Американский доллар в %s = %s%.2f\n", us_dollar_sym, bel_rub, bel_rub_sym, result);
                     }
                     case 6 -> {
                         double dollar_rus_rub_rate = 72.8849;
-                        rate = input * dollar_rus_rub_rate;
-                        System.out.printf("%s" + input + " по курсу " + dollar_rus_rub_rate + " Американский доллар в %s = %s%.2f\n", us_dollar_sym, rus_rub, rus_rub_sym, rate);
+                        result = input * dollar_rus_rub_rate;
+                        System.out.printf("%s" + input + " по курсу " + dollar_rus_rub_rate + " Американский доллар в %s = %s%.2f\n", us_dollar_sym, rus_rub, rus_rub_sym, result);
                     }
                     case 7 -> {
                         double dollar_zloty_rate = 3.94333;
-                        rate = input * dollar_zloty_rate;
-                        System.out.printf("%s" + input + " по курсу " + dollar_zloty_rate + " Американский доллар в %s = %s%.2f\n", us_dollar_sym, zloty, zloty_sym, rate);
+                        result = input * dollar_zloty_rate;
+                        System.out.printf("%s" + input + " по курсу " + dollar_zloty_rate + " Американский доллар в %s = %s%.2f\n", us_dollar_sym, zloty, zloty_sym, result);
                     }
                 }
             }
@@ -172,28 +174,28 @@ public class Converter {
                 switch (output) {
                     case 1 -> {
                         double euro_dollar_rate = 1.1728;
-                        rate = input * euro_dollar_rate;
-                        System.out.printf("%s" + input + " по курсу " + euro_dollar_rate + " Евро в %s = %s%.2f\n", euro_sym, us_dollar, euro_sym, rate);
+                        result = input * euro_dollar_rate;
+                        System.out.printf("%s" + input + " по курсу " + euro_dollar_rate + " Евро в %s = %s%.2f\n", euro_sym, us_dollar, euro_sym, result);
                     }
                     case 3 -> {
                         double euro_pound_rate = 0.792648;
-                        rate = input * euro_pound_rate;
-                        System.out.printf("%s" + input + " по курсу " + euro_pound_rate + " Евро в %s = %s%.2f\n", euro_sym, pound, pound_sym, rate);
+                        result = input * euro_pound_rate;
+                        System.out.printf("%s" + input + " по курсу " + euro_pound_rate + " Евро в %s = %s%.2f\n", euro_sym, pound, pound_sym, result);
                     }
                     case 4 -> {
                         double euro_yen_rate = 136.708;
-                        rate = input * euro_yen_rate;
-                        System.out.printf("%s" + input + " по курсу " + euro_yen_rate + " Евро в %s = %s%.2f\n", euro_sym, yen, yen_sym, rate);
+                        result = input * euro_yen_rate;
+                        System.out.printf("%s" + input + " по курсу " + euro_yen_rate + " Евро в %s = %s%.2f\n", euro_sym, yen, yen_sym, result);
                     }
                     case 5 -> {
                         double euro_bel_rub_rate = 2.9394;
-                        rate = input * euro_bel_rub_rate;
-                        System.out.printf("%s" + input + " по курсу " + euro_bel_rub_rate + " Евро в %s = %s%.2f\n", euro_sym, bel_rub, bel_rub_sym, rate);
+                        result = input * euro_bel_rub_rate;
+                        System.out.printf("%s" + input + " по курсу " + euro_bel_rub_rate + " Евро в %s = %s%.2f\n", euro_sym, bel_rub, bel_rub_sym, result);
                     }
                     case 6 -> {
                         double euro_rus_rub_rate = 84.875;
-                        rate = input * euro_rus_rub_rate;
-                        System.out.printf("%s" + input + " по курсу " + euro_rus_rub_rate + " Евро в %s = %s%.2f\n", euro_sym, rus_rub, rus_rub_sym, rate);
+                        result = input * euro_rus_rub_rate;
+                        System.out.printf("%s" + input + " по курсу " + euro_rus_rub_rate + " Евро в %s = %s%.2f\n", euro_sym, rus_rub, rus_rub_sym, result);
                     }
                 }
             }
@@ -202,28 +204,28 @@ public class Converter {
                 switch (output) {
                     case 1 -> {
                         double pound_dollar_rate = 1.60972;
-                        rate = input * pound_dollar_rate;
-                        System.out.printf("%s" + input + " по курсу " + pound_dollar_rate + " Английский фунт в %s = %.2f\n", pound_sym, us_dollar, rate);
+                        result = input * pound_dollar_rate;
+                        System.out.printf("%s" + input + " по курсу " + pound_dollar_rate + " Английский фунт в %s = %.2f\n", pound_sym, us_dollar, result);
                     } case 2 -> {
                         double pound_euro_rate = 1.26161;
-                        rate = input * pound_euro_rate;
-                        System.out.printf("%s" + input + " по курсу " + pound_euro_rate + " Английский фунт в %s = %.2f\n", pound_sym, euro, rate);
+                        result = input * pound_euro_rate;
+                        System.out.printf("%s" + input + " по курсу " + pound_euro_rate + " Английский фунт в %s = %.2f\n", pound_sym, euro, result);
                     } case 4 -> {
                         double pound_yen_rate = 172.511;
-                        rate = input * pound_yen_rate;
-                        System.out.printf("%s" + input + " по курсу " + pound_yen_rate + " Английский фунт в %s = %.2f\n", pound_sym, yen, rate);
+                        result = input * pound_yen_rate;
+                        System.out.printf("%s" + input + " по курсу " + pound_yen_rate + " Английский фунт в %s = %.2f\n", pound_sym, yen, result);
                     } case 5 -> {
                         double pound_bel_rub_rate = 3.4181;
-                        rate = input * pound_bel_rub_rate;
-                        System.out.printf("%s" + input + " по курсу " + pound_bel_rub_rate + " Английский фунт в %s = %.2f\n", pound_sym, bel_rub, rate);
+                        result = input * pound_bel_rub_rate;
+                        System.out.printf("%s" + input + " по курсу " + pound_bel_rub_rate + " Английский фунт в %s = %.2f\n", pound_sym, bel_rub, result);
                     } case 6 -> {
                         double pound_rus_rub_rate = 99.0681;
-                        rate = input * pound_rus_rub_rate;
-                        System.out.printf("%s" + input + " по курсу " + pound_rus_rub_rate + " Английский фунт в %s = %.2f\n", pound_sym, rus_rub, rate);
+                        result = input * pound_rus_rub_rate;
+                        System.out.printf("%s" + input + " по курсу " + pound_rus_rub_rate + " Английский фунт в %s = %.2f\n", pound_sym, rus_rub, result);
                     } case 7 -> {
                         double pound_zloty_rate = 5.4007;
-                        rate = input * pound_zloty_rate;
-                        System.out.printf("%s" + input + " по курсу " + pound_zloty_rate + " Английский фунт в %s = %.2f\n", pound_sym, zloty, rate);
+                        result = input * pound_zloty_rate;
+                        System.out.printf("%s" + input + " по курсу " + pound_zloty_rate + " Английский фунт в %s = %.2f\n", pound_sym, zloty, result);
                     }
                 }
             }
@@ -232,28 +234,28 @@ public class Converter {
                 switch (output){
                     case 1 -> {
                         double yen_dollar_rate = 0.00932574;
-                        rate = input * yen_dollar_rate;
-                        System.out.printf("%s" + input + " по курсу " + yen_dollar_rate + " Японская йена %s = %.2f\n", yen_sym, us_dollar, rate);
+                        result = input * yen_dollar_rate;
+                        System.out.printf("%s" + input + " по курсу " + yen_dollar_rate + " Японская йена %s = %.2f\n", yen_sym, us_dollar, result);
                     } case 2 -> {
                         double yen_euro_rate = 0.00730615;
-                        rate = input * yen_euro_rate;
-                        System.out.printf("%s" + input + " по курсу " + yen_euro_rate + " Японская йена %s = %.2f\n", yen_sym, euro, rate);
+                        result = input * yen_euro_rate;
+                        System.out.printf("%s" + input + " по курсу " + yen_euro_rate + " Японская йена %s = %.2f\n", yen_sym, euro, result);
                     } case 3 -> {
                         double yen_pound_rate = 0.00579135;
-                        rate = input * yen_pound_rate;
-                        System.out.printf("%s" + input + " по курсу " + yen_pound_rate + " Японская йена %s = %.2f\n", yen_sym, pound, rate);
+                        result = input * yen_pound_rate;
+                        System.out.printf("%s" + input + " по курсу " + yen_pound_rate + " Японская йена %s = %.2f\n", yen_sym, pound, result);
                     } case 5 -> {
                         double yen_bel_rub_rate = 0.022;
-                        rate = input * yen_bel_rub_rate;
-                        System.out.printf("%s" + input + " по курсу " + yen_bel_rub_rate + " Японская йена в %s = %.2f\n", yen_sym, bel_rub, rate);
+                        result = input * yen_bel_rub_rate;
+                        System.out.printf("%s" + input + " по курсу " + yen_bel_rub_rate + " Японская йена в %s = %.2f\n", yen_sym, bel_rub, result);
                     } case 6 -> {
                         double yen_rus_rub_rate = 65.16;
-                        rate = input * yen_rus_rub_rate;
-                        System.out.printf("%s" + input + " по курсу " + yen_rus_rub_rate + " Японская йена в %s = %.2f\n", yen_sym, rus_rub, rate);
+                        result = input * yen_rus_rub_rate;
+                        System.out.printf("%s" + input + " по курсу " + yen_rus_rub_rate + " Японская йена в %s = %.2f\n", yen_sym, rus_rub, result);
                     } case 7 -> {
                         double yen_zloty_rate = 0.036;
-                        rate = input * yen_zloty_rate;
-                        System.out.printf("%s" + input + " по курсу " + yen_zloty_rate + " Японская йена в %s = %.2f\n", yen_sym, zloty, rate);
+                        result = input * yen_zloty_rate;
+                        System.out.printf("%s" + input + " по курсу " + yen_zloty_rate + " Японская йена в %s = %.2f\n", yen_sym, zloty, result);
                     }
                 }
             }
@@ -262,28 +264,28 @@ public class Converter {
                 switch (output) {
                     case 1 -> {
                         double bel_rub_dollar_rate = 0.3987;
-                        rate = input * bel_rub_dollar_rate;
-                        System.out.printf("%s" + input + " по курсу " + bel_rub_dollar_rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, us_dollar, rate);
+                        result = input * bel_rub_dollar_rate;
+                        System.out.printf("%s" + input + " по курсу " + bel_rub_dollar_rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, us_dollar, result);
                     } case 2 -> {
                         double bel_rub_euro_rate = 0.342;
-                        rate = input * bel_rub_euro_rate;
-                        System.out.printf("%s" + input + " по курсу " + bel_rub_euro_rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, euro, rate);
+                        result = input * bel_rub_euro_rate;
+                        System.out.printf("%s" + input + " по курсу " + bel_rub_euro_rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, euro, result);
                     } case 3 -> {
                         double bel_rub_pound_rate = 0.29;
-                        rate = input * bel_rub_pound_rate;
-                        System.out.printf("%s" + input + " по курсу " + bel_rub_pound_rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, pound, rate);
+                        result = input * bel_rub_pound_rate;
+                        System.out.printf("%s" + input + " по курсу " + bel_rub_pound_rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, pound, result);
                     } case 4 -> {
                         double bel_rub_yen_rate = 44.74;
-                        rate = input * bel_rub_yen_rate;
-                        System.out.printf("%s" + input + " по курсу " + bel_rub_yen_rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, yen, rate);
+                        result = input * bel_rub_yen_rate;
+                        System.out.printf("%s" + input + " по курсу " + bel_rub_yen_rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, yen, result);
                     } case 6 -> {
                         double bel_rub_rus_rub_rate = 29.025;
-                        rate = input * bel_rub_rus_rub_rate;
-                        System.out.printf("%s" + input + " по курсу " + bel_rub_rus_rub_rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, rus_rub, rate);
+                        result = input * bel_rub_rus_rub_rate;
+                        System.out.printf("%s" + input + " по курсу " + bel_rub_rus_rub_rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, rus_rub, result);
                     } case 7 -> {
                         double bel_rub_zloty_rate = 1.58;
-                        rate = input * bel_rub_zloty_rate;
-                        System.out.printf("%s" + input + " по курсу " + bel_rub_zloty_rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, zloty, rate);
+                        result = input * bel_rub_zloty_rate;
+                        System.out.printf("%s" + input + " по курсу " + bel_rub_zloty_rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, zloty, result);
                     }
                 }
             }
@@ -292,28 +294,28 @@ public class Converter {
                 switch (output) {
                     case 1 -> {
                         double rus_rub_dollar_rate = 0.0137;
-                        rate = input * rus_rub_dollar_rate;
-                        System.out.printf("%s" + input + " по курсу " + rus_rub_dollar_rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, us_dollar, rate);
+                        result = input * rus_rub_dollar_rate;
+                        System.out.printf("%s" + input + " по курсу " + rus_rub_dollar_rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, us_dollar, result);
                     } case 2 -> {
                         double rus_rub_euro_rate = 0.012;
-                        rate = input * rus_rub_euro_rate;
-                        System.out.printf("%s" + input + " по курсу " + rus_rub_euro_rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, euro, rate);
+                        result = input * rus_rub_euro_rate;
+                        System.out.printf("%s" + input + " по курсу " + rus_rub_euro_rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, euro, result);
                     } case 3 -> {
                         double rus_rub_pound_rate = 0.0102;
-                        rate = input * rus_rub_pound_rate;
-                        System.out.printf("%s" + input + " по курсу " + rus_rub_pound_rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, pound, rate);
+                        result = input * rus_rub_pound_rate;
+                        System.out.printf("%s" + input + " по курсу " + rus_rub_pound_rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, pound, result);
                     } case 4 -> {
                         double rus_rub_yen_rate = 1.5347;
-                        rate = input * rus_rub_yen_rate;
-                        System.out.printf("%s" + input + " по курсу " + rus_rub_yen_rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, yen, rate);
+                        result = input * rus_rub_yen_rate;
+                        System.out.printf("%s" + input + " по курсу " + rus_rub_yen_rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, yen, result);
                     } case 5 -> {
                         double rus_rub_bel_rub_rate = 0.034;
-                        rate = input * rus_rub_bel_rub_rate;
-                        System.out.printf("%s" + input + " по курсу " + rus_rub_bel_rub_rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, bel_rub, rate);
+                        result = input * rus_rub_bel_rub_rate;
+                        System.out.printf("%s" + input + " по курсу " + rus_rub_bel_rub_rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, bel_rub, result);
                     } case 7 -> {
                         double rus_rub_zloty_rate = 0.055;
-                        rate = input * rus_rub_zloty_rate;
-                        System.out.printf("%s" + input + " по курсу " + rus_rub_zloty_rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, zloty, rate);
+                        result = input * rus_rub_zloty_rate;
+                        System.out.printf("%s" + input + " по курсу " + rus_rub_zloty_rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, zloty, result);
                     }
                 }
             }
@@ -322,28 +324,28 @@ public class Converter {
                 switch (output) {
                     case 1 -> {
                         double zloty_dollar_rate = 0.253;
-                        rate = input * zloty_dollar_rate;
-                        System.out.printf("%s" + input + " по курсу " + zloty_dollar_rate + " Польский злотый в %s = %.2f\n", zloty_sym, us_dollar, rate);
+                        result = input * zloty_dollar_rate;
+                        System.out.printf("%s" + input + " по курсу " + zloty_dollar_rate + " Польский злотый в %s = %.2f\n", zloty_sym, us_dollar, result);
                     } case 2 -> {
                         double zloty_euro_rate = 0.2166;
-                        rate = input * zloty_euro_rate;
-                        System.out.printf("%s" + input + " по курсу " + zloty_euro_rate + " Польский злотый в %s = %.2f\n", zloty_sym, euro, rate);
+                        result = input * zloty_euro_rate;
+                        System.out.printf("%s" + input + " по курсу " + zloty_euro_rate + " Польский злотый в %s = %.2f\n", zloty_sym, euro, result);
                     } case 3 -> {
                         double zloty_pound_rate = 0.1852;
-                        rate = input * zloty_pound_rate;
-                        System.out.printf("%s" + input + " по курсу " + zloty_pound_rate + " Польский злотый в %s = %.2f\n", zloty_sym, pound, rate);
+                        result = input * zloty_pound_rate;
+                        System.out.printf("%s" + input + " по курсу " + zloty_pound_rate + " Польский злотый в %s = %.2f\n", zloty_sym, pound, result);
                     } case 4 -> {
                         double zloty_yen_rate = 28.04;
-                        rate = input * zloty_yen_rate;
-                        System.out.printf("%s" + input + " по курсу " + zloty_yen_rate + " Польский злотый в %s = %.2f\n", zloty_sym, yen, rate);
+                        result = input * zloty_yen_rate;
+                        System.out.printf("%s" + input + " по курсу " + zloty_yen_rate + " Польский злотый в %s = %.2f\n", zloty_sym, yen, result);
                     } case 5 -> {
                         double zloty_bel_rub_rate = 0.6329;
-                        rate = input * zloty_bel_rub_rate;
-                        System.out.printf("%s" + input + " по курсу " + zloty_bel_rub_rate + " Польский злотый в %s = %.2f\n", zloty_sym, bel_rub, rate);
+                        result = input * zloty_bel_rub_rate;
+                        System.out.printf("%s" + input + " по курсу " + zloty_bel_rub_rate + " Польский злотый в %s = %.2f\n", zloty_sym, bel_rub, result);
                     } case 6 ->  {
                         double zloty_rus_rub_rate = 18.3435;
-                        rate = input * zloty_rus_rub_rate;
-                        System.out.printf("%s" + input + " по курсу " + zloty_rus_rub_rate + " Польский злотый в %s = %.2f\n", zloty_sym, rus_rub, rate);
+                        result = input * zloty_rus_rub_rate;
+                        System.out.printf("%s" + input + " по курсу " + zloty_rus_rub_rate + " Польский злотый в %s = %.2f\n", zloty_sym, rus_rub, result);
                     } default ->{
                     }
                 }
@@ -927,46 +929,49 @@ public class Converter {
         //Ввод суммы перевода
         double input = getInput(inType);
 
+        double rate;
+
         switch (choice) {
             //Метры в секунду во все величины
             case 1 -> {
                 switch (output) {
                     case 2 -> {
-                        double msec_kmh_rate = 3.6;
-                        result = input * msec_kmh_rate;
+                        rate = 3.6;
+                        result = input * rate;
                         System.out.printf("М/с в км/ч: %f м/с = %.2f км/ч\n", input, result);
                     }
                     case 3 -> {
-                        double msec_kmsec_rate = 0.001;
-                        result = input * msec_kmsec_rate;
+                        rate = 0.001;
+                        result = input * rate;
                         System.out.printf("М/с в км/с: %f м/с = %.2f км/с\n", input, result);
                     }
                 }
             }
+            //Километры в час во все велчины
             case 2 -> {
                 switch (output) {
                     case 1 -> {
-                        double kmh_msec_rate = 0.277778;
-                        result = input * kmh_msec_rate;
+                        rate = 0.277778;
+                        result = input * rate;
                         System.out.printf("Км/ч в м/с: %f км/ч = %.2f м/с\n", input, result);
                     }
                     case 3 -> {
-                        double kmh_kmsec_rate = 0.000277778;
-                        result = input * kmh_kmsec_rate;
+                        rate = 0.000277778;
+                        result = input * rate;
                         System.out.printf("км/ч в км/с: %f км/ч = %.2f км/с\n", input, result);
                     }
                 }
-            }
+            }//Километры в секунду во все велчины
             case 3 -> {
                 switch (output) {
                     case 1 -> {
-                        double kmsec_msec_rate = 1000;
-                        result = input * kmsec_msec_rate;
+                        rate = 1000;
+                        result = input * rate;
                         System.out.printf("Км/с в м/с: %f км/с = %.2f м/с\n", input, result);
                     }
                     case 2 -> {
-                        double kmsec_kmh_rate = 3600;
-                        result = input * kmsec_kmh_rate;
+                        rate = 3600;
+                        result = input * rate;
                         System.out.printf("км/с в км/ч: %f км/с = %.2f км/ч\n", input, result);
                     }
                 }
