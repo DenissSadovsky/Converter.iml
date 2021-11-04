@@ -8,7 +8,7 @@ public class Converter {
     static final int MAX_TIME = 8;
     static final int MAX_SQUARE = 8;
     static final int MAX_VOLUME = 7;
-    static final int MAX_SPEED = 6;
+    static final int MAX_SPEED = 4;
     static final int MAX_TEMPERATURE = 4;
     static final int MAX_WEIGHT = 7;
 
@@ -107,6 +107,8 @@ public class Converter {
         //Ввод первой валюты и проверка
 
         int choice = getChoice(MAX_CURRENCY, MIN_ANYTHING);
+        if (choice == 8)
+            return;
 
         String inType = "";
 
@@ -357,6 +359,8 @@ public class Converter {
 
         //Ввод первой величины и проверка
         int choice = getChoice(MAX_LENGTH, MIN_ANYTHING);
+        if (choice == 6)
+            return;
         String inType;
         switch (choice) {
             case 1 -> inType = "Километры >> ";
@@ -515,6 +519,8 @@ public class Converter {
 
         //Ввод первой величины и проверка
         int choice = getChoice(MAX_TIME, MIN_ANYTHING);
+        if(choice == 8)
+            return;
         String inType;
         switch (choice) {
             case 1 -> inType = "Годы >> ";
@@ -586,8 +592,9 @@ public class Converter {
         System.out.println("Используйте следующие коды для ввода выбранной единицы площади:");
         System.out.println(" 1 - Квадратный километры  \n 2 - Гектары \n 3 - Ары \n 4 - Квадратные метры \n 5 - Квадратные дециметры \n 6 - Квадратные сантиметры \n 7 - Квадратные миллиметры \n 8 - Завершить конвертацию единиц площади \n");
 
-
         int choice = getChoice(MAX_SQUARE, MIN_ANYTHING);
+        if (choice == 8)
+            return;
         String inType;
         switch (choice) {
             case 1 -> inType = "Квадратные километры >> ";
@@ -871,6 +878,9 @@ public class Converter {
         System.out.println(" 1 - Кубические метры  \n 2 - Кубические дециметры \n 3 - Кубические сантиметры \n 4 - Кубические миллиметры \n 5 - Литры \n 6 - Миллилитры \n 7 - Завершить конвертацию единиц объёма \n");
 
         int choice = getChoice(MAX_VOLUME, MIN_ANYTHING);
+        if(choice == 7)
+            return;
+
         String inType;
         switch (choice) {
             case 1 -> inType = "Кубические метры >> ";
@@ -895,27 +905,73 @@ public class Converter {
         double result;
         System.out.println("Вы выбрали перевод единиц скорости");
         System.out.println("Используйте следующие коды для ввода выбранной единицы скорости:");
-        System.out.println(" 1 - Метры в секунду  \n 2 - Километры в час \n 3 - Километры в секунду \n 4 - Мили в час \n 5 - Футы в секунду \n 6 - Завершить конвертацию единиц скорости \n");
+        System.out.println(" 1 - Метры в секунду  \n 2 - Километры в час \n 3 - Километры в секунду \n 4 - Завершить конвертацию единиц скорости \n");
 
         int choice = getChoice(MAX_SPEED, MIN_ANYTHING);
+        if(choice == 4)
+            return;
         String inType;
         switch (choice) {
             case 1 -> inType = "Метры в секунду >> ";
             case 2 -> inType = "Километры в час >> ";
             case 3 -> inType = "Километры в секунду >> ";
-            case 4 -> inType = "Мили в час >> ";
-            case 5 -> inType = "Футы в секунду >> ";
             default -> {
                 return;
             }
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_SPEED, MIN_ANYTHING, choice);
-        if(output == 6)
+        if(output == 4)
             return;
 
         //Ввод суммы перевода
         double input = getInput(inType);
+
+        switch (choice) {
+            //Метры в секунду во все величины
+            case 1 -> {
+                switch (output) {
+                    case 2 -> {
+                        double msec_kmh_rate = 3.6;
+                        result = input * msec_kmh_rate;
+                        System.out.printf("М/с в км/ч: %f м/с = %.2f км/ч\n", input, result);
+                    }
+                    case 3 -> {
+                        double msec_kmsec_rate = 0.001;
+                        result = input * msec_kmsec_rate;
+                        System.out.printf("М/с в км/с: %f м/с = %.2f км/с\n", input, result);
+                    }
+                }
+            }
+            case 2 -> {
+                switch (output) {
+                    case 1 -> {
+                        double kmh_msec_rate = 0.277778;
+                        result = input * kmh_msec_rate;
+                        System.out.printf("Км/ч в м/с: %f км/ч = %.2f м/с\n", input, result);
+                    }
+                    case 3 -> {
+                        double kmh_kmsec_rate = 0.000277778;
+                        result = input * kmh_kmsec_rate;
+                        System.out.printf("км/ч в км/с: %f км/ч = %.2f км/с\n", input, result);
+                    }
+                }
+            }
+            case 3 -> {
+                switch (output) {
+                    case 1 -> {
+                        double kmsec_msec_rate = 1000;
+                        result = input * kmsec_msec_rate;
+                        System.out.printf("Км/с в м/с: %f км/с = %.2f м/с\n", input, result);
+                    }
+                    case 2 -> {
+                        double kmsec_kmh_rate = 3600;
+                        result = input * kmsec_kmh_rate;
+                        System.out.printf("км/с в км/ч: %f км/с = %.2f км/ч\n", input, result);
+                    }
+                }
+            }
+        }
     }
     public static void Temperature() {
         char grad = 176;
@@ -925,6 +981,9 @@ public class Converter {
         System.out.println(" 1 - Градусы Цельсия  \n 2 - Градусы Фаренгейта \n 3 - Кельвины \n 4 - Завершить конвертацию единиц температуры \n");
 
         int choice = getChoice(MAX_TEMPERATURE, MIN_ANYTHING);
+        if(choice == 4)
+            return;
+
         String inType;
         switch (choice) {
             case 1 -> inType = "Градусы Цельсия >> ";
@@ -991,6 +1050,8 @@ public class Converter {
         System.out.println(" 1 - Тонны  \n 2 - Центнеры \n 3 - Килограммы \n 4 - Граммы \n 5 - Миллиграммы \n 6 - Фунты \n 7 - Завершить конвертацию единиц массы \n");
 
         int choice = getChoice(MAX_WEIGHT, MIN_ANYTHING);
+        if(choice == 7)
+            return;
         String inType;
         switch (choice) {
             case 1 -> inType = "Тонны >> ";
