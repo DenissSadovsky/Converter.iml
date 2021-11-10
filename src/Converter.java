@@ -585,9 +585,191 @@ public class Converter {
             case 2 -> {
                 switch (output){
                     case 1 -> {
-
-
+                        rate = 0.0191781;
+                        result = input * rate;
+                        System.out.printf("Недели в года: %f недель = %.2f лет\n", input, result);
+                    } case 3 -> {
+                        rate = 0.142857;
+                        result = input * rate;
+                        System.out.printf("Недели в дни: %f недель = %.2f дней\n", input, result);
+                    } case 4 -> {
+                        rate = 168;
+                        result = input * rate;
+                        System.out.printf("Недели в часы: %f недель = %.2f часов\n", input, result);
+                    } case 5 -> {
+                        rate = 10080;
+                        result = input * rate;
+                        System.out.printf("Недели в минуты: %f недель = %.2f минут\n", input, result);
+                    } case 6 -> {
+                        rate = 604800;
+                        result = input * rate;
+                        System.out.printf("Недели в секунды: %f недель = %.2f секунд\n", input, result);
+                    } case 7 -> {
+                        rate = 604800310;
+                        result = input * rate;
+                        System.out.printf("Недели в миллисекунды: %f недель = %.2f миллисекунды\n", input, result);
                     }
+
+                }
+            }
+            //Дни во все величины
+            case 3 -> {
+                switch (output){
+                    case 1 -> {
+                        rate = 0.0027397;
+                        result = input * rate;
+                        System.out.printf("Дни в года: %f дней = %.2f лет\n", input, result);
+                    } case 2 -> {
+                        rate = 0.142857216;
+                        result = input * rate;
+                        System.out.printf("Дни в недели: %f дней = %.2f недель\n", input, result);
+                    } case 4 -> {
+                        rate = 24;
+                        result = input * rate;
+                        System.out.printf("Дни в часы: %f дней = %.2f часов\n", input, result);
+                    } case 5 -> {
+                        rate = 1440;
+                        result = input * rate;
+                        System.out.printf("Дни в минуты: %f дней = %.2f минут\n", input, result);
+                    } case 6 -> {
+                        rate = 86400;
+                        result = input * rate;
+                        System.out.printf("Дни в секунды: %f дней = %.2f секунд\n", input, result);
+                    } case 7 -> {
+                        rate = 86400044;
+                        result = input * rate;
+                        System.out.printf("Дни в миллисекунды: %f дней = %.2f миллисекунды\n", input, result);
+                    }
+
+                }
+            }
+            //Часы во все величины
+            case 4 -> {
+                switch (output){
+                    case 1 -> {
+                        rate = 0.000114;
+                        result = input * rate;
+                        System.out.printf("Часы в года: %f часов = %.2f лет\n", input, result);
+                    } case 2 -> {
+                        rate = 0.005952;
+                        result = input * rate;
+                        System.out.printf("Часы в недели: %f часов = %.2f недель\n", input, result);
+                    } case 3 -> {
+                        rate = 0.0417;
+                        result = input * rate;
+                        System.out.printf("Часы в дни: %f часов = %.2f дней\n", input, result);
+                    } case 5 -> {
+                        rate = 60;
+                        result = input * rate;
+                        System.out.printf("Часы в минуты: %f часов = %.2f минут\n", input, result);
+                    } case 6 -> {
+                        rate = 3600;
+                        result = input * rate;
+                        System.out.printf("Часы в секунды: %f часов = %.2f секунд\n", input, result);
+                    } case 7 -> {
+                        rate = 3600000;
+                        result = input * rate;
+                        System.out.printf("Часы в миллисекунды: %f часов = %.2f миллисекунды\n", input, result);
+                    }
+
+                }
+            }
+            //Минуты во все величины
+            case 5 -> {
+                switch (output){
+                    case 1 -> {
+                        rate = 1.902588493150695081e-6;
+                        result = input * rate;
+                        System.out.printf("Минуты в года: %f минут = %.2f лет\n", input, result);
+                    } case 2 -> {
+                        rate = 9.920640000000052793e-5;
+                        result = input * rate;
+                        System.out.printf("Минуты в недели: %f минут = %.2f недель\n", input, result);
+                    } case 3 -> {
+                        rate = 0.00069;
+                        result = input * rate;
+                        System.out.printf("Минуты в дни: %f минут = %.2f дней\n", input, result);
+                    } case 4 -> {
+                        rate = 0.01667;
+                        result = input * rate;
+                        System.out.printf("Минуты в часы: %f минут = %.2f часов\n", input, result);
+                    } case 6 -> {
+                        rate = 60;
+                        result = input * rate;
+                        System.out.printf("Минуты в секунды: %f минут = %.2f секунд\n", input, result);
+                    } case 7 -> {
+                        rate = 60000;
+                        result = input * rate;
+                        System.out.printf("Минуты в миллисекунды: %f минут = %.2f миллисекунды\n", input, result);
+                    }
+
+                }
+            }
+            //Секунды во все величины
+            case 6 -> {
+                switch (output){
+                    case 1 -> {
+                        rate = 3.17e-8;
+                        result = input * rate;
+                        System.out.printf("Секунды в года: %f секунд = %.2f лет\n", input, result);
+                    } case 2 -> {
+                        rate = 1.65e-6;
+                        result = input * rate;
+                        System.out.printf("Секунды в недели: %f секунд = %.2f недель\n", input, result);
+                    } case 3 -> {
+                        rate = 1.157e-5;
+                        result = input * rate;
+                        System.out.printf("Секунды в дни: %f секунд = %.2f дней\n", input, result);
+                    } case 4 -> {
+                        rate = 0.00028;
+                        result = input * rate;
+                        System.out.printf("Секунды в часы: %f секунд = %.2f часов\n", input, result);
+                    } case 5 -> {
+                        rate = 0.017;
+                        result = input * rate;
+                        System.out.printf("Секунды в минуты: %f секунд = %.2f минут\n", input, result);
+                    } case 7 -> {
+                        rate = 1000;
+                        result = input * rate;
+                        System.out.printf("Секунды в миллисекунды: %f секунд = %.2f миллисекунды\n", input, result);
+                    }
+
+                }
+            }
+            //Миллисекунды во все величины
+            case 7 -> {
+                switch (output) {
+                    case 1 -> {
+                        rate = 3.17098e-11;
+                        result = input * rate;
+                        System.out.printf("Миллисекунды в года: %f миллисекунд = %.2f лет\n", input, result);
+                    }
+                    case 2 -> {
+                        rate = 1.653e-9;
+                        result = input * rate;
+                        System.out.printf("Миллисекунды в недели: %f миллисекунд = %.2f недель\n", input, result);
+                    }
+                    case 3 -> {
+                        rate = 1.157e-8;
+                        result = input * rate;
+                        System.out.printf("Миллисекунды в дни: %f миллисекунд = %.2f дней\n", input, result);
+                    }
+                    case 4 -> {
+                        rate = 2.78e-7;
+                        result = input * rate;
+                        System.out.printf("Миллисекунды в часы: %f миллисекунд = %.2f часов\n", input, result);
+                    }
+                    case 5 -> {
+                        rate = 1.67e-5;
+                        result = input * rate;
+                        System.out.printf("Миллисекунды в минуты: %f миллисекунд = %.2f минут\n", input, result);
+                    }
+                    case 6 -> {
+                        rate = 0.001;
+                        result = input * rate;
+                        System.out.printf("Миллисекунды в секунды: %f миллисекунд = %.2f секунд\n", input, result);
+                    }
+
                 }
             }
         }
