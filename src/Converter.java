@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class Converter {
-    public static Scanner scanner= new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
 
     static final int MIN_ANYTHING = 1;
     static final int MAX_CURRENCY = 8;
@@ -12,7 +12,7 @@ public class Converter {
     static final int MAX_TEMPERATURE = 4;
     static final int MAX_WEIGHT = 7;
 
-    public static int getChoice(int MAX_CHOICE, int MIN_CHOICE){
+    public static int getChoice(int MAX_CHOICE, int MIN_CHOICE) {
         int choice = 0;
         boolean isIncorrect;
         do {
@@ -33,7 +33,7 @@ public class Converter {
         return choice;
     }
 
-    public static int getOutput(int MAX_OUTPUT, int MIN_OUTPUT, int choice){
+    public static int getOutput(int MAX_OUTPUT, int MIN_OUTPUT, int choice) {
         int output = 0;
         boolean isIncorrect;
         do {
@@ -58,7 +58,7 @@ public class Converter {
         return output;
     }
 
-    public static double getInput(String inType){
+    public static double getInput(String inType) {
         double input = 0;
         boolean isIncorrect;
         do {
@@ -79,6 +79,11 @@ public class Converter {
         return input;
     }
 
+    public static double getResult(double rate, double input){
+        return input * rate;
+    }
+
+
     public static void Currency() {
         char us_dollar_sym = 36;
         char pound_sym = 163;
@@ -87,16 +92,6 @@ public class Converter {
         char bel_rub_sym = 8381;
         char rus_rub_sym = 8381;
         char zloty_sym = 90;
-
-        String us_dollar = "Американский доллар";
-        String pound = "Английский фунт";
-        String yen = "Японская йена";
-        String euro = "Евро";
-        String bel_rub = "Белорусский рубль";
-        String rus_rub = "Российский рубль";
-        String zloty = "Польский злотый";
-
-        double result;
 
         // Интерфейс
 
@@ -130,9 +125,31 @@ public class Converter {
         //Ввод сумма перевода и проверка
         double input = getInput(inType);
 
-        double rate;
-
         //Конвертация величин
+        boolean isCorrect = convertCurrency(choice, output, input);
+        if (isCorrect)
+            System.out.print("");
+    }
+
+    public static boolean convertCurrency(int choice, int output, double input){
+        char us_dollar_sym = 36;
+        char pound_sym = 163;
+        char euro_sym = 8364;
+        char yen_sym = 165;
+        char bel_rub_sym = 8381;
+        char rus_rub_sym = 8381;
+        char zloty_sym = 90;
+
+        String us_dollar = "Американский доллар";
+        String pound = "Английский фунт";
+        String yen = "Японская йена";
+        String euro = "Евро";
+        String bel_rub = "Белорусский рубль";
+        String rus_rub = "Российский рубль";
+        String zloty = "Польский злотый";
+
+        double result;
+        double rate;
         switch (choice) {
             //Доллар во все валюты
             case 1 -> {
@@ -197,6 +214,11 @@ public class Converter {
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Евро в %s = %s%.2f\n", euro_sym, rus_rub, rus_rub_sym, result);
                     }
+                    case 7 -> {
+                        rate = 4.6131;
+                        result = input * rate;
+                        System.out.printf("%s" + input + " по курсу " + rate + " Евро в %s = %.2f\n", euro_sym, zloty, result);
+                    }
                 }
             }
             //Английский фунт во все валюты
@@ -206,23 +228,28 @@ public class Converter {
                         rate = 1.60972;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Английский фунт в %s = %.2f\n", pound_sym, us_dollar, result);
-                    } case 2 -> {
+                    }
+                    case 2 -> {
                         rate = 1.26161;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Английский фунт в %s = %.2f\n", pound_sym, euro, result);
-                    } case 4 -> {
+                    }
+                    case 4 -> {
                         rate = 172.511;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Английский фунт в %s = %.2f\n", pound_sym, yen, result);
-                    } case 5 -> {
+                    }
+                    case 5 -> {
                         rate = 3.4181;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Английский фунт в %s = %.2f\n", pound_sym, bel_rub, result);
-                    } case 6 -> {
+                    }
+                    case 6 -> {
                         rate = 99.0681;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Английский фунт в %s = %.2f\n", pound_sym, rus_rub, result);
-                    } case 7 -> {
+                    }
+                    case 7 -> {
                         rate = 5.4007;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Английский фунт в %s = %.2f\n", pound_sym, zloty, result);
@@ -231,28 +258,33 @@ public class Converter {
             }
             //Йена во все валюты
             case 4 -> {
-                switch (output){
+                switch (output) {
                     case 1 -> {
                         rate = 0.00932574;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Японская йена %s = %.2f\n", yen_sym, us_dollar, result);
-                    } case 2 -> {
+                    }
+                    case 2 -> {
                         rate = 0.00730615;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Японская йена %s = %.2f\n", yen_sym, euro, result);
-                    } case 3 -> {
+                    }
+                    case 3 -> {
                         rate = 0.00579135;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Японская йена %s = %.2f\n", yen_sym, pound, result);
-                    } case 5 -> {
+                    }
+                    case 5 -> {
                         rate = 0.022;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Японская йена в %s = %.2f\n", yen_sym, bel_rub, result);
-                    } case 6 -> {
+                    }
+                    case 6 -> {
                         rate = 65.16;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Японская йена в %s = %.2f\n", yen_sym, rus_rub, result);
-                    } case 7 -> {
+                    }
+                    case 7 -> {
                         rate = 0.036;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Японская йена в %s = %.2f\n", yen_sym, zloty, result);
@@ -266,23 +298,28 @@ public class Converter {
                         rate = 0.3987;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, us_dollar, result);
-                    } case 2 -> {
+                    }
+                    case 2 -> {
                         rate = 0.342;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, euro, result);
-                    } case 3 -> {
+                    }
+                    case 3 -> {
                         rate = 0.29;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, pound, result);
-                    } case 4 -> {
+                    }
+                    case 4 -> {
                         rate = 44.74;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, yen, result);
-                    } case 6 -> {
+                    }
+                    case 6 -> {
                         rate = 29.025;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, rus_rub, result);
-                    } case 7 -> {
+                    }
+                    case 7 -> {
                         rate = 1.58;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Белорусский рубль в %s = %.2f\n", bel_rub_sym, zloty, result);
@@ -296,23 +333,28 @@ public class Converter {
                         rate = 0.0137;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, us_dollar, result);
-                    } case 2 -> {
+                    }
+                    case 2 -> {
                         rate = 0.012;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, euro, result);
-                    } case 3 -> {
+                    }
+                    case 3 -> {
                         rate = 0.0102;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, pound, result);
-                    } case 4 -> {
+                    }
+                    case 4 -> {
                         rate = 1.5347;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, yen, result);
-                    } case 5 -> {
+                    }
+                    case 5 -> {
                         rate = 0.034;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, bel_rub, result);
-                    } case 7 -> {
+                    }
+                    case 7 -> {
                         rate = 0.055;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Российский рубль в %s = %.2f\n", rus_rub_sym, zloty, result);
@@ -326,34 +368,42 @@ public class Converter {
                         rate = 0.253;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Польский злотый в %s = %.2f\n", zloty_sym, us_dollar, result);
-                    } case 2 -> {
+                    }
+                    case 2 -> {
                         rate = 0.2166;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Польский злотый в %s = %.2f\n", zloty_sym, euro, result);
-                    } case 3 -> {
+                    }
+                    case 3 -> {
                         rate = 0.1852;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Польский злотый в %s = %.2f\n", zloty_sym, pound, result);
-                    } case 4 -> {
+                    }
+                    case 4 -> {
                         rate = 28.04;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Польский злотый в %s = %.2f\n", zloty_sym, yen, result);
-                    } case 5 -> {
+                    }
+                    case 5 -> {
                         rate = 0.6329;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Польский злотый в %s = %.2f\n", zloty_sym, bel_rub, result);
-                    } case 6 ->  {
+                    }
+                    case 6 -> {
                         rate = 18.3435;
                         result = input * rate;
                         System.out.printf("%s" + input + " по курсу " + rate + " Польский злотый в %s = %.2f\n", zloty_sym, rus_rub, result);
-                    } default ->{
+                    }
+                    default -> {
                     }
                 }
             }
         }
+        return true;
     }
+
+
     public static void Length() {
-        double result;
         // Интерфейс
         System.out.println("Вы выбрали перевод единиц длины");
         System.out.println("Используйте следующие коды для ввода выбранной единицы длины:");
@@ -382,9 +432,15 @@ public class Converter {
         //Ввод суммы перевода
         double input = getInput(inType);
 
-        double rate;
-
         //Конвертация
+        boolean isCorrect = convertLength(choice, output, input);
+        if (isCorrect)
+            System.out.print("");
+    }
+
+    public static boolean convertLength(int choice, int output, double input){
+        double result;
+        double rate;
         switch (choice) {
             //Километр во все величины
             case 1 -> {
@@ -512,18 +568,20 @@ public class Converter {
                 }
             }
         }
+        return true;
     }
+
+
     public static void Time() {
-        double result;
 
         // Интерфейс
         System.out.println("Вы выбрали перевод единиц времени");
         System.out.println("Используйте следующие коды для ввода выбранной единицы времени:");
-        System.out.println("1 - Года  \n 2 - Недели \n 3 - Дни \n 4 - Часы \n 5 - Минуты \n 6 - Секунды \n 7 - Миллисекунлы \n 8 - Заверщить конвертацию единиц времени");
+        System.out.println(" 1 - Года  \n 2 - Недели \n 3 - Дни \n 4 - Часы \n 5 - Минуты \n 6 - Секунды \n 7 - Миллисекунлы \n 8 - Заверщить конвертацию единиц времени");
 
         //Ввод первой величины и проверка
         int choice = getChoice(MAX_TIME, MIN_ANYTHING);
-        if(choice == 8)
+        if (choice == 8)
             return;
         String inType;
         switch (choice) {
@@ -540,71 +598,87 @@ public class Converter {
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_TIME, MIN_ANYTHING, choice);
-        if(output == 8)
+        if (output == 8)
             return;
 
         //Ввод суммы перевода
         double input = getInput(inType);
 
-        double rate;
-
         //Конвертация
+        boolean isCorrect = convertTime(choice, output, input);
+        if (isCorrect)
+            System.out.print("");
+    }
+
+    public static boolean convertTime(int choice, int output, double input){
+        double rate;
+        double result;
         switch (choice) {
-            //Годы во все величины
+            //Года во все величины
             case 1 -> {
                 switch (output) {
                     case 2 -> {
                         rate = 52.1428571;
                         result = input * rate;
-                        System.out.printf("Годы в недели: %f лет = %.2f недели\n", input, result);
-                    } case 3 -> {
+                        System.out.printf("Года в недели: %f лет = %.2f недели\n", input, result);
+                    }
+                    case 3 -> {
                         rate = 365;
                         result = input * rate;
-                        System.out.printf("Годы в дни: %f лет = %.2f дней\n", input, result);
-                    } case 4 -> {
+                        System.out.printf("Года в дни: %f лет = %.2f дней\n", input, result);
+                    }
+                    case 4 -> {
                         rate = 8760;
                         result = input * rate;
-                        System.out.printf("Годы в часы: %f лет = %.2f часов\n", input, result);
-                    } case 5 -> {
+                        System.out.printf("Года в часы: %f лет = %.2f часов\n", input, result);
+                    }
+                    case 5 -> {
                         rate = 252600;
                         result = input * rate;
-                        System.out.printf("Годы в минуты: %f лет = %.2f минут\n", input, result);
-                    } case 6 -> {
+                        System.out.printf("Года в минуты: %f лет = %.2f минут\n", input, result);
+                    }
+                    case 6 -> {
                         rate = 31536000;
                         result = input * rate;
-                        System.out.printf("Годы в секунды: %f лет = %.2f секунд\n", input, result);
-                    } case 7 -> {
+                        System.out.printf("Года в секунды: %f лет = %.2f секунд\n", input, result);
+                    }
+                    case 7 -> {
                         rate = 3.1536e10;
                         result = input * rate;
-                        System.out.printf("Годы в миллисекунды: %f лет = %.2f миллисекунды\n", input, result);
+                        System.out.printf("Года в миллисекунды: %f лет = %.2f миллисекунды\n", input, result);
                     }
 
                 }
             }
             //Недели во все величины
             case 2 -> {
-                switch (output){
+                switch (output) {
                     case 1 -> {
                         rate = 0.0191781;
                         result = input * rate;
                         System.out.printf("Недели в года: %f недель = %.2f лет\n", input, result);
-                    } case 3 -> {
+                    }
+                    case 3 -> {
                         rate = 0.142857;
                         result = input * rate;
                         System.out.printf("Недели в дни: %f недель = %.2f дней\n", input, result);
-                    } case 4 -> {
+                    }
+                    case 4 -> {
                         rate = 168;
                         result = input * rate;
                         System.out.printf("Недели в часы: %f недель = %.2f часов\n", input, result);
-                    } case 5 -> {
+                    }
+                    case 5 -> {
                         rate = 10080;
                         result = input * rate;
                         System.out.printf("Недели в минуты: %f недель = %.2f минут\n", input, result);
-                    } case 6 -> {
+                    }
+                    case 6 -> {
                         rate = 604800;
                         result = input * rate;
                         System.out.printf("Недели в секунды: %f недель = %.2f секунд\n", input, result);
-                    } case 7 -> {
+                    }
+                    case 7 -> {
                         rate = 604800310;
                         result = input * rate;
                         System.out.printf("Недели в миллисекунды: %f недель = %.2f миллисекунды\n", input, result);
@@ -614,28 +688,33 @@ public class Converter {
             }
             //Дни во все величины
             case 3 -> {
-                switch (output){
+                switch (output) {
                     case 1 -> {
                         rate = 0.0027397;
                         result = input * rate;
                         System.out.printf("Дни в года: %f дней = %.2f лет\n", input, result);
-                    } case 2 -> {
+                    }
+                    case 2 -> {
                         rate = 0.142857216;
                         result = input * rate;
                         System.out.printf("Дни в недели: %f дней = %.2f недель\n", input, result);
-                    } case 4 -> {
+                    }
+                    case 4 -> {
                         rate = 24;
                         result = input * rate;
                         System.out.printf("Дни в часы: %f дней = %.2f часов\n", input, result);
-                    } case 5 -> {
+                    }
+                    case 5 -> {
                         rate = 1440;
                         result = input * rate;
                         System.out.printf("Дни в минуты: %f дней = %.2f минут\n", input, result);
-                    } case 6 -> {
+                    }
+                    case 6 -> {
                         rate = 86400;
                         result = input * rate;
                         System.out.printf("Дни в секунды: %f дней = %.2f секунд\n", input, result);
-                    } case 7 -> {
+                    }
+                    case 7 -> {
                         rate = 86400044;
                         result = input * rate;
                         System.out.printf("Дни в миллисекунды: %f дней = %.2f миллисекунды\n", input, result);
@@ -645,28 +724,33 @@ public class Converter {
             }
             //Часы во все величины
             case 4 -> {
-                switch (output){
+                switch (output) {
                     case 1 -> {
                         rate = 0.000114;
                         result = input * rate;
                         System.out.printf("Часы в года: %f часов = %.2f лет\n", input, result);
-                    } case 2 -> {
+                    }
+                    case 2 -> {
                         rate = 0.005952;
                         result = input * rate;
                         System.out.printf("Часы в недели: %f часов = %.2f недель\n", input, result);
-                    } case 3 -> {
+                    }
+                    case 3 -> {
                         rate = 0.0417;
                         result = input * rate;
                         System.out.printf("Часы в дни: %f часов = %.2f дней\n", input, result);
-                    } case 5 -> {
+                    }
+                    case 5 -> {
                         rate = 60;
                         result = input * rate;
                         System.out.printf("Часы в минуты: %f часов = %.2f минут\n", input, result);
-                    } case 6 -> {
+                    }
+                    case 6 -> {
                         rate = 3600;
                         result = input * rate;
                         System.out.printf("Часы в секунды: %f часов = %.2f секунд\n", input, result);
-                    } case 7 -> {
+                    }
+                    case 7 -> {
                         rate = 3600000;
                         result = input * rate;
                         System.out.printf("Часы в миллисекунды: %f часов = %.2f миллисекунды\n", input, result);
@@ -676,28 +760,33 @@ public class Converter {
             }
             //Минуты во все величины
             case 5 -> {
-                switch (output){
+                switch (output) {
                     case 1 -> {
                         rate = 1.902588493150695081e-6;
                         result = input * rate;
                         System.out.printf("Минуты в года: %f минут = %.2f лет\n", input, result);
-                    } case 2 -> {
+                    }
+                    case 2 -> {
                         rate = 9.920640000000052793e-5;
                         result = input * rate;
                         System.out.printf("Минуты в недели: %f минут = %.2f недель\n", input, result);
-                    } case 3 -> {
+                    }
+                    case 3 -> {
                         rate = 0.00069;
                         result = input * rate;
                         System.out.printf("Минуты в дни: %f минут = %.2f дней\n", input, result);
-                    } case 4 -> {
+                    }
+                    case 4 -> {
                         rate = 0.01667;
                         result = input * rate;
                         System.out.printf("Минуты в часы: %f минут = %.2f часов\n", input, result);
-                    } case 6 -> {
+                    }
+                    case 6 -> {
                         rate = 60;
                         result = input * rate;
                         System.out.printf("Минуты в секунды: %f минут = %.2f секунд\n", input, result);
-                    } case 7 -> {
+                    }
+                    case 7 -> {
                         rate = 60000;
                         result = input * rate;
                         System.out.printf("Минуты в миллисекунды: %f минут = %.2f миллисекунды\n", input, result);
@@ -707,28 +796,33 @@ public class Converter {
             }
             //Секунды во все величины
             case 6 -> {
-                switch (output){
+                switch (output) {
                     case 1 -> {
                         rate = 3.17e-8;
                         result = input * rate;
                         System.out.printf("Секунды в года: %f секунд = %.2f лет\n", input, result);
-                    } case 2 -> {
+                    }
+                    case 2 -> {
                         rate = 1.65e-6;
                         result = input * rate;
                         System.out.printf("Секунды в недели: %f секунд = %.2f недель\n", input, result);
-                    } case 3 -> {
+                    }
+                    case 3 -> {
                         rate = 1.157e-5;
                         result = input * rate;
                         System.out.printf("Секунды в дни: %f секунд = %.2f дней\n", input, result);
-                    } case 4 -> {
+                    }
+                    case 4 -> {
                         rate = 0.00028;
                         result = input * rate;
                         System.out.printf("Секунды в часы: %f секунд = %.2f часов\n", input, result);
-                    } case 5 -> {
+                    }
+                    case 5 -> {
                         rate = 0.017;
                         result = input * rate;
                         System.out.printf("Секунды в минуты: %f секунд = %.2f минут\n", input, result);
-                    } case 7 -> {
+                    }
+                    case 7 -> {
                         rate = 1000;
                         result = input * rate;
                         System.out.printf("Секунды в миллисекунды: %f секунд = %.2f миллисекунды\n", input, result);
@@ -773,9 +867,11 @@ public class Converter {
                 }
             }
         }
+        return true;
     }
+
+
     public static void Square() {
-        double result;
         System.out.println("Вы выбрали перевод единиц площади");
         System.out.println("Используйте следующие коды для ввода выбранной единицы площади:");
         System.out.println(" 1 - Квадратный километры  \n 2 - Гектары \n 3 - Ары \n 4 - Квадратные метры \n 5 - Квадратные дециметры \n 6 - Квадратные сантиметры \n 7 - Квадратные миллиметры \n 8 - Завершить конвертацию единиц площади \n");
@@ -804,8 +900,16 @@ public class Converter {
         //Ввод суммы перевода
         double input = getInput(inType);
 
-        double rate;
+        //Конвертация
+        boolean isCorrect = convertSquare(choice, output, input);
+        if (isCorrect)
+            System.out.print("");
 
+    }
+
+    public static boolean convertSquare(int choice, int output, double input){
+        double rate;
+        double result;
         switch (choice) {
             //Квадратные километры во все величины
             case 1 -> {
@@ -1060,15 +1164,17 @@ public class Converter {
                 }
             }
         }
+        return true;
     }
+
+
     public static void Volume() {
-        double result;
         System.out.println("Вы выбрали перевод единиц объёма");
         System.out.println("Используйте следующие коды для ввода выбранной единицы объёма:");
         System.out.println(" 1 - Кубические метры  \n 2 - Кубические дециметры \n 3 - Кубические сантиметры \n 4 - Кубические миллиметры \n 5 - Литры \n 6 - Миллилитры \n 7 - Завершить конвертацию единиц объёма \n");
 
         int choice = getChoice(MAX_VOLUME, MIN_ANYTHING);
-        if(choice == 7)
+        if (choice == 7)
             return;
 
         String inType;
@@ -1085,20 +1191,22 @@ public class Converter {
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_VOLUME, MIN_ANYTHING, choice);
-        if(output == 7)
+        if (output == 7)
             return;
 
         //Ввод суммы перевода
         double input = getInput(inType);
     }
+
+
+
     public static void Speed() {
-        double result;
         System.out.println("Вы выбрали перевод единиц скорости");
         System.out.println("Используйте следующие коды для ввода выбранной единицы скорости:");
         System.out.println(" 1 - Метры в секунду  \n 2 - Километры в час \n 3 - Километры в секунду \n 4 - Завершить конвертацию единиц скорости \n");
 
         int choice = getChoice(MAX_SPEED, MIN_ANYTHING);
-        if(choice == 4)
+        if (choice == 4)
             return;
         String inType;
         switch (choice) {
@@ -1111,14 +1219,21 @@ public class Converter {
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_SPEED, MIN_ANYTHING, choice);
-        if(output == 4)
+        if (output == 4)
             return;
 
         //Ввод суммы перевода
         double input = getInput(inType);
 
-        double rate;
+        //Конвертация
+        boolean isCorrect = convertSquare(choice, output, input);
+        if (isCorrect)
+            System.out.print("");
+    }
 
+    public static boolean convertSpeed(int choice, int output, double input){
+        double result;
+        double rate;
         switch (choice) {
             //Метры в секунду во все величины
             case 1 -> {
@@ -1165,16 +1280,19 @@ public class Converter {
                 }
             }
         }
+        return true;
     }
+
+
     public static void Temperature() {
-        char grad = 176;
-        double result;
+
+        double result = 0;
         System.out.println("Вы выбрали перевод единиц температуры");
         System.out.println("Используйте следующие коды для ввода выбранной единицы температуры:");
         System.out.println(" 1 - Градусы Цельсия  \n 2 - Градусы Фаренгейта \n 3 - Кельвины \n 4 - Завершить конвертацию единиц температуры \n");
 
         int choice = getChoice(MAX_TEMPERATURE, MIN_ANYTHING);
-        if(choice == 4)
+        if (choice == 4)
             return;
 
         String inType;
@@ -1188,12 +1306,21 @@ public class Converter {
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_TEMPERATURE, MIN_ANYTHING, choice);
-        if(output == 4)
+        if (output == 4)
             return;
 
         //Ввод суммы перевода
         double input = getInput(inType);
 
+        //Конвертация
+        boolean isCorrect = convertTemperature(choice, output, result);
+        if (isCorrect)
+            System.out.print("");
+    }
+
+    public static boolean convertTemperature(int choice, int output, double input){
+        double result;
+        char grad = 176;
         switch (choice) {
             //Градусы Цельсия во все величины
             case 1 -> {
@@ -1204,7 +1331,7 @@ public class Converter {
                     }
                     case 3 -> {
                         result = input + 273.15;
-                        System.out.printf("Градусы Цельсия в Кельвины: %f %sC = %.2f K\n", input,grad, result);
+                        System.out.printf("Градусы Цельсия в Кельвины: %f %sC = %.2f K\n", input, grad, result);
                     }
                 }
             }
@@ -1217,7 +1344,7 @@ public class Converter {
                     }
                     case 3 -> {
                         result = (input - 32) * 5 / 9 + 273.15;
-                        System.out.printf("Градусы Фаренгейта в Кельвины: %f %sF = %.2f K\n", input,grad, result);
+                        System.out.printf("Градусы Фаренгейта в Кельвины: %f %sF = %.2f K\n", input, grad, result);
                     }
                 }
             }
@@ -1235,15 +1362,17 @@ public class Converter {
                 }
             }
         }
+        return true;
     }
+
+
     public static void Weight() {
-        double result;
         System.out.println("Вы выбрали перевод единиц массы");
         System.out.println("Используйте следующие коды для ввода выбранной единицы массы:");
         System.out.println(" 1 - Тонны  \n 2 - Центнеры \n 3 - Килограммы \n 4 - Граммы \n 5 - Миллиграммы \n 6 - Фунты \n 7 - Завершить конвертацию единиц массы \n");
 
         int choice = getChoice(MAX_WEIGHT, MIN_ANYTHING);
-        if(choice == 7)
+        if (choice == 7)
             return;
         String inType;
         switch (choice) {
@@ -1259,40 +1388,49 @@ public class Converter {
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_WEIGHT, MIN_ANYTHING, choice);
-        if(output == 7)
+        if (output == 7)
             return;
 
         //Ввод суммы перевода
         double input = getInput(inType);
     }
 
-    public static void main(String[] args) {
+
+
+    public static void printInterface(){
+        System.out.println("\n***********************************************************************************");
+        System.out.println("Используйте следующие коды для выбора величины для конвертации: \n 1 - Валюта \n 2 - Длина \n 3 - Время \n 4 - Площадь \n 5 - (Объём) \n 6 - Скорость \n 7 - Температура \n 8 - (Масса) \n 9 - Завершить программу \n");
+    }
+
+    public static int getDimension(){
         boolean isIncorrect;
-        boolean isTrue;
-        System.out.println("Добро пожаловать в программу конвертации величин");
+        int choice = 0;
         do {
-            System.out.println("\n***********************************************************************************\nИспользуйте следующие коды для выбора величины для конвертации: \n 1 - Валюта \n 2 - Длина \n 3 - Время \n 4 - Площадь \n 5 - Объём \n 6 - Скорость \n 7 - Температура \n 8 - Масса \n 9 - Завершить программу \n");
+            isIncorrect = false;
+            System.out.print("Выберите величину для конвертации:");
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.out.println("Вы ввели неподходящий код величины");
+                isIncorrect = true;
+            }
+            if (!isIncorrect && (choice < 1) || (choice > 9)) {
+                System.out.println("Вы ввели неподходящий код величины");
+                choice = 0;
+                isIncorrect = true;
+            }
+        } while (isIncorrect);
+        return  choice;
+    }
 
-            isTrue = true;
-            int choice = 0;
-            do {
-                isIncorrect = false;
-                System.out.print("Выберите величину для конвертации:");
-                try {
-                    choice = Integer.parseInt(scanner.nextLine());
-                } catch (Exception e) {
-                    System.out.println("Вы ввели неподходящий код величины");
-                    isIncorrect = true;
-                }
-                if (!isIncorrect && (choice < 1) || (choice > 9)) {
-                    System.out.println("Вы ввели неподходящий код величины");
-                    choice = 0;
-                    isIncorrect = true;
-                }
-            } while (isIncorrect);
-
+    public static void main(String[] args) {
+        System.out.println("Добро пожаловать в программу конвертации величин");
+        boolean isTrue = true;
+        do {
+            printInterface();
+            int choice = getDimension();
             switch (choice) {
-                case 1 ->Currency();
+                case 1 -> Currency();
                 case 2 -> Length();
                 case 3 -> Time();
                 case 4 -> Square();
