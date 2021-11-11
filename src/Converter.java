@@ -1196,8 +1196,40 @@ public class Converter {
 
         //Ввод суммы перевода
         double input = getInput(inType);
+        //Конвертация
+        boolean isCorrect = convertVolume(choice, output, input);
+        if (isCorrect)
+            System.out.print("");
     }
 
+    public static boolean convertVolume(int choice, int output, double input){
+        double rate;
+        double result;
+        switch (choice) {
+            //Кубические метры во все величины
+            case 1 -> {
+                switch (output) {
+                    case 2 -> {
+                        rate = 1000;
+                        result = input * rate;
+                        System.out.printf("Кубические метры в Кубические дециметры: %f куб.м = %.2f куб.дм\n", input, result);
+                    }
+                    case 3 -> {
+
+                    }
+                    case 4 -> {
+                         }
+                    case 5 -> {
+                        }
+                    case 6 -> {
+
+                         }
+                }
+            }
+
+        }
+        return true;
+    }
 
 
     public static void Speed() {
@@ -1393,8 +1425,41 @@ public class Converter {
 
         //Ввод суммы перевода
         double input = getInput(inType);
+
+        //Конвертация
+        boolean isCorrect = convertWeight(choice, output, input);
+        if (isCorrect)
+            System.out.print("");
     }
 
+    public static boolean convertWeight(int choice, int output, double input){
+        double rate;
+        double result;
+        switch (choice) {
+            //Тонны во все величины
+            case 1 -> {
+                switch (output) {
+                    case 2 -> {
+                        rate = 10;
+                        result = input * rate;
+                        System.out.printf("Тонны в Центнеры: %f тонн = %.2f центнеров\n", input, result);
+                    }
+                    case 3 -> {
+
+                    }
+                    case 4 -> {
+                    }
+                    case 5 -> {
+                    }
+                    case 6 -> {
+
+                    }
+                }
+            }
+
+        }
+        return true;
+    }
 
 
     public static void printInterface(){
