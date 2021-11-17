@@ -1215,18 +1215,177 @@ public class Converter {
                         System.out.printf("Кубические метры в Кубические дециметры: %f куб.м = %.2f куб.дм\n", input, result);
                     }
                     case 3 -> {
-
+                        rate = 1000000;
+                        result = input * rate;
+                        System.out.printf("Кубические метры в Кубические сантиметры: %f куб.м = %.2f куб.см\n", input, result);
                     }
                     case 4 -> {
-                         }
+                        rate = 1000000000;
+                        result = input * rate;
+                        System.out.printf("Кубические метры в Кубические миллиметры: %f куб.м = %.2f куб.мм\n", input, result);
+                    }
                     case 5 -> {
-                        }
+                        rate = 1000;
+                        result = input * rate;
+                        System.out.printf("Кубические метры в Литры: %f куб.м = %.2f литров\n", input, result);
+                    }
                     case 6 -> {
-
-                         }
+                        rate = 1000000;
+                        result = input * rate;
+                        System.out.printf("Кубические метры в Миллилитры: %f куб.м = %.2f миллилитров\n", input, result);
+                    }
                 }
             }
-
+            //Кубические дециметры во все величины
+            case 2 -> {
+                switch (output) {
+                    case 1 -> {
+                        rate = 0.001;
+                        result = input * rate;
+                        System.out.printf("Кубические дециметры в Кубические метры: %f куб.дм = %.2f куб.м\n", input, result);
+                    }
+                    case 3 -> {
+                        rate = 1000;
+                        result = input * rate;
+                        System.out.printf("Кубические дециметры в Кубические сантиметры: %f куб.дм = %.2f куб.см\n", input, result);
+                    }
+                    case 4 -> {
+                        rate = 1000000;
+                        result = input * rate;
+                        System.out.printf("Кубические дециметры в Кубические миллиметры: %f куб.дм = %.2f куб.мм\n", input, result);
+                    }
+                    case 5 -> {
+                        rate = 1;
+                        result = input * rate;
+                        System.out.printf("Кубические дециметры в Литры: %f куб.дм = %.2f литров\n", input, result);
+                    }
+                    case 6 -> {
+                        rate = 1000;
+                        result = input * rate;
+                        System.out.printf("Кубические дециметры в Миллилитры: %f куб.дм = %.2f миллилитров\n", input, result);
+                    }
+                }
+            }
+            //Кубические сантиметры во все величины
+            case 3 -> {
+                switch (output) {
+                    case 1 -> {
+                        rate = 1e-6;
+                        result = input * rate;
+                        System.out.printf("Кубические сантиметры в Кубические метры: %f куб.см = %.2f куб.м\n", input, result);
+                    }
+                    case 2 -> {
+                        rate = 0.001;
+                        result = input * rate;
+                        System.out.printf("Кубические сантиметры в Кубические дециметры: %f куб.см = %.2f куб.дм\n", input, result);
+                    }
+                    case 4 -> {
+                        rate = 1000;
+                        result = input * rate;
+                        System.out.printf("Кубические сантиметры в Кубические миллиметры: %f куб.см = %.2f куб.мм\n", input, result);
+                    }
+                    case 5 -> {
+                        rate = 0.001;
+                        result = input * rate;
+                        System.out.printf("Кубические сантиметры в Литры: %f куб.см = %.2f литров\n", input, result);
+                    }
+                    case 6 -> {
+                        rate = 1;
+                        result = input * rate;
+                        System.out.printf("Кубические сантиметры в Миллилитры: %f куб.см = %.2f миллилитров\n", input, result);
+                    }
+                }
+            }
+            //Кубические миллиметры во все величины
+            case 4 -> {
+                switch (output) {
+                    case 1 -> {
+                        rate = 1e-9;
+                        result = input * rate;
+                        System.out.printf("Кубические миллиметры в Кубические метры: %f куб.мм = %.2f куб.м\n", input, result);
+                    }
+                    case 2 -> {
+                        rate = 1e-6;
+                        result = input * rate;
+                        System.out.printf("Кубические миллиметры в Кубические дециметры: %f куб.мм = %.2f куб.дм\n", input, result);
+                    }
+                    case 3 -> {
+                        rate = 0.001;
+                        result = input * rate;
+                        System.out.printf("Кубические миллиметры в Кубические сантиметры: %f куб.мм = %.2f куб.см\n", input, result);
+                    }
+                    case 5 -> {
+                        rate = 1e-6;
+                        result = input * rate;
+                        System.out.printf("Кубические миллиметры в Литры: %f куб.мм = %.2f литров\n", input, result);
+                    }
+                    case 6 -> {
+                        rate = 0.001;
+                        result = input * rate;
+                        System.out.printf("Кубические миллиметры в Миллилитры: %f куб.мм = %.2f миллилитров\n", input, result);
+                    }
+                }
+            }
+            //Литры во все величины
+            case 5 -> {
+                switch (output) {
+                    case 1 -> {
+                        rate = 0.001;
+                        result = input * rate;
+                        System.out.printf("Литры в Кубические метры: %f литров = %.2f куб.м\n", input, result);
+                    }
+                    case 2 -> {
+                        rate = 1;
+                        result = input * rate;
+                        System.out.printf("Литры в Кубические дециметры: %f литров = %.2f куб.дм\n", input, result);
+                    }
+                    case 3 -> {
+                        rate = 1000;
+                        result = input * rate;
+                        System.out.printf("Литры в Кубические сантиметры: %f литров = %.2f куб.см\n", input, result);
+                    }
+                    case 4 -> {
+                        rate = 1000000;
+                        result = input * rate;
+                        System.out.printf("Литры в Кубические миллиметры: %f литров = %.2f куб.мм\n", input, result);
+                    }
+                    case 6 -> {
+                        rate = 1000;
+                        result = input * rate;
+                        System.out.printf("Литры в Миллилитры: %f литров = %.2f миллилитров\n", input, result);
+                    }
+                }
+            }
+            //Литры во все величины
+            case 6 -> {
+                switch (output) {
+                    case 1 -> {
+                        rate = 1e-6;
+                        result = input * rate;
+                        System.out.printf("Миллилитры в Кубические метры: %f миллилитров = %.2f куб.м\n", input, result);
+                    }
+                    case 2 -> {
+                        rate = 0.001;
+                        result = input * rate;
+                        System.out.printf("Миллилитры в Кубические дециметры: %f миллилитров = %.2f куб.дм\n", input, result);
+                    }
+                    case 3 -> {
+                        rate = 1;
+                        result = input * rate;
+                        System.out.printf("Миллилитры в Кубические сантиметры: %f миллилитров = %.2f куб.см\n", input, result);
+                    }
+                    case 4 -> {
+                        rate = 1000;
+                        result = input * rate;
+                        System.out.printf("Миллилитры в Кубические миллиметры: %f миллилитров = %.2f куб.мм\n", input, result);
+                    }
+                    case 5 -> {
+                        rate = 0.001;
+                        result = input * rate;
+                        System.out.printf("Миллилитры в Литры: %f миллилитров = %.2f литров\n", input, result);
+                    }
+                }
+            }
         }
         return true;
     }
@@ -1445,18 +1604,177 @@ public class Converter {
                         System.out.printf("Тонны в Центнеры: %f тонн = %.2f центнеров\n", input, result);
                     }
                     case 3 -> {
-
+                        rate = 1000;
+                        result = input * rate;
+                        System.out.printf("Тонны в Килограммы: %f тонн = %.2f кг\n", input, result);
                     }
                     case 4 -> {
+                        rate = 1000000;
+                        result = input * rate;
+                        System.out.printf("Тонны в Граммы: %f тонн = %.2f г\n", input, result);
                     }
                     case 5 -> {
+                        rate = 1000000000;
+                        result = input * rate;
+                        System.out.printf("Тонны в Миллиграммы: %f тонн = %.2f мг\n", input, result);
                     }
                     case 6 -> {
-
+                        rate = 2204.62;
+                        result = input * rate;
+                        System.out.printf("Тонны в Фунты: %f тонн = %.2f фунтов\n", input, result);
                     }
                 }
             }
-
+            //Центнеры во все величины
+            case 2 -> {
+                switch (output) {
+                    case 1 -> {
+                        rate = 0.1;
+                        result = input * rate;
+                        System.out.printf("Центнеры в Тонны: %f центнеров = %.2f тонн\n", input, result);
+                    }
+                    case 3 -> {
+                        rate = 100;
+                        result = input * rate;
+                        System.out.printf("Центнеры в Килограммы: %f центнеров = %.2f кг\n", input, result);
+                    }
+                    case 4 -> {
+                        rate = 100000;
+                        result = input * rate;
+                        System.out.printf("Центнеры в Граммы: %f центнеров = %.2f г\n", input, result);
+                    }
+                    case 5 -> {
+                        rate = 1e+8;
+                        result = input * rate;
+                        System.out.printf("Центнеры в Миллиграммы: %f центнеров = %.2f мг\n", input, result);
+                    }
+                    case 6 -> {
+                        rate = 220.462;
+                        result = input * rate;
+                        System.out.printf("Центнеры в Фунты: %f центнеров = %.2f фунтов\n", input, result);
+                    }
+                }
+            }
+            //Килограммы во все величины
+            case 3 -> {
+                switch (output) {
+                    case 1 -> {
+                        rate = 0.001;
+                        result = input * rate;
+                        System.out.printf("Килограммы в Тонны: %f кг = %.2f тонн\n", input, result);
+                    }
+                    case 2 -> {
+                        rate = 0.01;
+                        result = input * rate;
+                        System.out.printf("Килограммы в Центнеры: %f кг = %.2f центнеров\n", input, result);
+                    }
+                    case 4 -> {
+                        rate = 1000;
+                        result = input * rate;
+                        System.out.printf("Килограммы в Граммы: %f кг = %.2f г\n", input, result);
+                    }
+                    case 5 -> {
+                        rate = 1e+6;
+                        result = input * rate;
+                        System.out.printf("Килограммы в Миллиграммы: %f кг = %.2f мг\n", input, result);
+                    }
+                    case 6 -> {
+                        rate = 2.20462;
+                        result = input * rate;
+                        System.out.printf("Килограммы в Фунты: %f кг = %.2f фунтов\n", input, result);
+                    }
+                }
+            }
+            //Граммы во все величины
+            case 4 -> {
+                switch (output) {
+                    case 1 -> {
+                        rate = 1e-6;
+                        result = input * rate;
+                        System.out.printf("Граммы в Тонны: %f г = %.2f тонн\n", input, result);
+                    }
+                    case 2 -> {
+                        rate = 1e-5;
+                        result = input * rate;
+                        System.out.printf("Граммы в Центнеры: %f г = %.2f центнеров\n", input, result);
+                    }
+                    case 3 -> {
+                        rate = 0.001;
+                        result = input * rate;
+                        System.out.printf("Граммы в Килограммы: %f г = %.2f кг\n", input, result);
+                    }
+                    case 5 -> {
+                        rate = 1000;
+                        result = input * rate;
+                        System.out.printf("Граммы в Миллиграммы: %f г = %.2f мг\n", input, result);
+                    }
+                    case 6 -> {
+                        rate = 0.00220462;
+                        result = input * rate;
+                        System.out.printf("Граммы в Фунты: %f г = %.2f фунтов\n", input, result);
+                    }
+                }
+            }
+            //Миллиграммы во все величины
+            case 5 -> {
+                switch (output) {
+                    case 1 -> {
+                        rate = 1e-9;
+                        result = input * rate;
+                        System.out.printf("Миллиграммы в Тонны: %f мг = %.2f тонн\n", input, result);
+                    }
+                    case 2 -> {
+                        rate = 1e-8;
+                        result = input * rate;
+                        System.out.printf("Миллиграммы в Центнеры: %f мг = %.2f центнеров\n", input, result);
+                    }
+                    case 3 -> {
+                        rate = 1e-6;
+                        result = input * rate;
+                        System.out.printf("Миллиграммы в Килограммы: %f мг = %.2f кг\n", input, result);
+                    }
+                    case 4 -> {
+                        rate = 0.001;
+                        result = input * rate;
+                        System.out.printf("Миллиграммы в Граммы: %f мг = %.2f г\n", input, result);
+                    }
+                    case 6 -> {
+                        rate = 2.20462e-6;
+                        result = input * rate;
+                        System.out.printf("Миллиграммы в Фунты: %f мг = %.2f фунтов\n", input, result);
+                    }
+                }
+            }
+            //Фунты во все величины
+            case 6 -> {
+                switch (output) {
+                    case 1 -> {
+                        rate = 0.000453592;
+                        result = input * rate;
+                        System.out.printf("Фунты в Тонны: %f фунтов = %.2f тонн\n", input, result);
+                    }
+                    case 2 -> {
+                        rate = 0.00453592;
+                        result = input * rate;
+                        System.out.printf("Фунты в Центнеры: %f фунтов = %.2f центнеров\n", input, result);
+                    }
+                    case 3 -> {
+                        rate = 0.453592;
+                        result = input * rate;
+                        System.out.printf("Фунты в Килограммы: %f фунтов = %.2f кг\n", input, result);
+                    }
+                    case 4 -> {
+                        rate = 453.592;
+                        result = input * rate;
+                        System.out.printf("Фунты в Граммы: %f фунтов = %.2f г\n", input, result);
+                    }
+                    case 5 -> {
+                        rate = 453592;
+                        result = input * rate;
+                        System.out.printf("Фунты в Миллиграммы: %f фунтов = %.2f мг\n", input, result);
+                    }
+                }
+            }
         }
         return true;
     }
