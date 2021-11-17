@@ -1504,7 +1504,7 @@ public class Converter {
         double input = getInput(inType);
 
         //Конвертация
-        boolean isCorrect = convertTemperature(choice, output, result);
+        boolean isCorrect = convertTemperature(choice, output, input);
         if (isCorrect)
             System.out.print("");
     }
