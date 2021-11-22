@@ -1,3 +1,5 @@
+package com.company;
+
 import java.util.Scanner;
 public class Converter {
     public static Scanner scanner = new Scanner(System.in);
@@ -448,7 +450,7 @@ public class Converter {
                     case 2 -> {
                         rate = 1000;
                         result = input * rate;
-                        System.out.printf("Километр в метр: %f км = %.0f м\n", input, result);
+                        System.out.printf("Километр в метр: %f км = %.2f м\n", input, result);
                     }
                     case 3 -> {
                         rate = 10000;
@@ -473,22 +475,22 @@ public class Converter {
                     case 1 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Метр в километр: %f м = %.2f км\n", input, result);
+                        System.out.printf("Метр в километр: %f м = %.3f км\n", input, result);
                     }
                     case 3 -> {
                         rate = 10;
                         result = input * rate;
-                        System.out.printf("Метр в дециметр: %f м = %.0f дцм\n", input, result);
+                        System.out.printf("Метр в дециметр: %f м = %.2f дцм\n", input, result);
                     }
                     case 4 -> {
                         rate = 100;
                         result = input * rate;
-                        System.out.printf("Метр в сантиметр: %f м = %.0f см\n", input, result);
+                        System.out.printf("Метр в сантиметр: %f м = %.2f см\n", input, result);
                     }
                     case 5 -> {
                         rate = 1000;
                         result = input * rate;
-                        System.out.printf("Метр в миллиметр: %f м = %.0f мм\n", input, result);
+                        System.out.printf("Метр в миллиметр: %f м = %.2f мм\n", input, result);
                     }
                 }
             }
@@ -498,7 +500,7 @@ public class Converter {
                     case 1 -> {
                         rate = 0.0001;
                         result = input * rate;
-                        System.out.printf("Дециметр в километр: %f дцм = %.2f км\n", input, result);
+                        System.out.printf("Дециметр в километр: %f дцм = %.4f км\n", input, result);
                     }
                     case 2 -> {
                         rate = 0.1;
@@ -508,12 +510,12 @@ public class Converter {
                     case 4 -> {
                         rate = 10;
                         result = input * rate;
-                        System.out.printf("Дециметр в сантиметр: %f дцм = %.0f см\n", input, result);
+                        System.out.printf("Дециметр в сантиметр: %f дцм = %.2f см\n", input, result);
                     }
                     case 5 -> {
                         rate = 100;
                         result = input * rate;
-                        System.out.printf("Дециметр в миллиметр: %f дцм = %.0f мм\n", input, result);
+                        System.out.printf("Дециметр в миллиметр: %f дцм = %.2f мм\n", input, result);
                     }
                 }
             }
@@ -523,7 +525,7 @@ public class Converter {
                     case 1 -> {
                         rate = 0.00001;
                         result = input * rate;
-                        System.out.printf("Сантиметр в километр: %f см = %.2f км\n", input, result);
+                        System.out.printf("Сантиметр в километр: %f см = %.5f км\n", input, result);
                     }
                     case 2 -> {
                         rate = 0.01;
@@ -538,7 +540,7 @@ public class Converter {
                     case 5 -> {
                         rate = 10;
                         result = input * rate;
-                        System.out.printf("Сантиметр в миллиметр: %f см = %.0f мм\n", input, result);
+                        System.out.printf("Сантиметр в миллиметр: %f см = %.2f мм\n", input, result);
                     }
                 }
             }
@@ -548,12 +550,12 @@ public class Converter {
                     case 1 -> {
                         rate = 0.000001;
                         result = input * rate;
-                        System.out.printf("Миллиметр в километр: %f мм = %.2f км\n", input, result);
+                        System.out.printf("Миллиметр в километр: %f мм = %.6f км\n", input, result);
                     }
                     case 2 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Миллиметр в метр: %f мм = %.2f м\n", input, result);
+                        System.out.printf("Миллиметр в метр: %f мм = %.3f м\n", input, result);
                     }
                     case 3 -> {
                         rate = 0.01;
@@ -656,7 +658,7 @@ public class Converter {
                     case 1 -> {
                         rate = 0.0191781;
                         result = input * rate;
-                        System.out.printf("Недели в года: %f недель = %.2f лет\n", input, result);
+                        System.out.printf("Недели в года: %f недель = %.3f лет\n", input, result);
                     }
                     case 3 -> {
                         rate = 0.142857;
@@ -692,7 +694,7 @@ public class Converter {
                     case 1 -> {
                         rate = 0.0027397;
                         result = input * rate;
-                        System.out.printf("Дни в года: %f дней = %.2f лет\n", input, result);
+                        System.out.printf("Дни в года: %f дней = %.4f лет\n", input, result);
                     }
                     case 2 -> {
                         rate = 0.142857216;
@@ -728,12 +730,12 @@ public class Converter {
                     case 1 -> {
                         rate = 0.000114;
                         result = input * rate;
-                        System.out.printf("Часы в года: %f часов = %.2f лет\n", input, result);
+                        System.out.printf("Часы в года: %f часов = %.4f лет\n", input, result);
                     }
                     case 2 -> {
                         rate = 0.005952;
                         result = input * rate;
-                        System.out.printf("Часы в недели: %f часов = %.2f недель\n", input, result);
+                        System.out.printf("Часы в недели: %f часов = %.3f недель\n", input, result);
                     }
                     case 3 -> {
                         rate = 0.0417;
@@ -764,17 +766,17 @@ public class Converter {
                     case 1 -> {
                         rate = 1.902588493150695081e-6;
                         result = input * rate;
-                        System.out.printf("Минуты в года: %f минут = %.2f лет\n", input, result);
+                        System.out.printf("Минуты в года: %f минут = %.7f лет\n", input, result);
                     }
                     case 2 -> {
                         rate = 9.920640000000052793e-5;
                         result = input * rate;
-                        System.out.printf("Минуты в недели: %f минут = %.2f недель\n", input, result);
+                        System.out.printf("Минуты в недели: %f минут = %.6f недель\n", input, result);
                     }
                     case 3 -> {
                         rate = 0.00069;
                         result = input * rate;
-                        System.out.printf("Минуты в дни: %f минут = %.2f дней\n", input, result);
+                        System.out.printf("Минуты в дни: %f минут = %.4f дней\n", input, result);
                     }
                     case 4 -> {
                         rate = 0.01667;
@@ -800,22 +802,22 @@ public class Converter {
                     case 1 -> {
                         rate = 3.17e-8;
                         result = input * rate;
-                        System.out.printf("Секунды в года: %f секунд = %.2f лет\n", input, result);
+                        System.out.printf("Секунды в года: %f секунд = %.8f лет\n", input, result);
                     }
                     case 2 -> {
                         rate = 1.65e-6;
                         result = input * rate;
-                        System.out.printf("Секунды в недели: %f секунд = %.2f недель\n", input, result);
+                        System.out.printf("Секунды в недели: %f секунд = %.6f недель\n", input, result);
                     }
                     case 3 -> {
                         rate = 1.157e-5;
                         result = input * rate;
-                        System.out.printf("Секунды в дни: %f секунд = %.2f дней\n", input, result);
+                        System.out.printf("Секунды в дни: %f секунд = %.5f дней\n", input, result);
                     }
                     case 4 -> {
                         rate = 0.00028;
                         result = input * rate;
-                        System.out.printf("Секунды в часы: %f секунд = %.2f часов\n", input, result);
+                        System.out.printf("Секунды в часы: %f секунд = %.4f часов\n", input, result);
                     }
                     case 5 -> {
                         rate = 0.017;
@@ -836,32 +838,32 @@ public class Converter {
                     case 1 -> {
                         rate = 3.17098e-11;
                         result = input * rate;
-                        System.out.printf("Миллисекунды в года: %f миллисекунд = %.2f лет\n", input, result);
+                        System.out.printf("Миллисекунды в года: %f миллисекунд = %.11f лет\n", input, result);
                     }
                     case 2 -> {
                         rate = 1.653e-9;
                         result = input * rate;
-                        System.out.printf("Миллисекунды в недели: %f миллисекунд = %.2f недель\n", input, result);
+                        System.out.printf("Миллисекунды в недели: %f миллисекунд = %.9f недель\n", input, result);
                     }
                     case 3 -> {
                         rate = 1.157e-8;
                         result = input * rate;
-                        System.out.printf("Миллисекунды в дни: %f миллисекунд = %.2f дней\n", input, result);
+                        System.out.printf("Миллисекунды в дни: %f миллисекунд = %.8f дней\n", input, result);
                     }
                     case 4 -> {
                         rate = 2.78e-7;
                         result = input * rate;
-                        System.out.printf("Миллисекунды в часы: %f миллисекунд = %.2f часов\n", input, result);
+                        System.out.printf("Миллисекунды в часы: %f миллисекунд = %.7f часов\n", input, result);
                     }
                     case 5 -> {
                         rate = 1.67e-5;
                         result = input * rate;
-                        System.out.printf("Миллисекунды в минуты: %f миллисекунд = %.2f минут\n", input, result);
+                        System.out.printf("Миллисекунды в минуты: %f миллисекунд = %.5f минут\n", input, result);
                     }
                     case 6 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Миллисекунды в секунды: %f миллисекунд = %.2f секунд\n", input, result);
+                        System.out.printf("Миллисекунды в секунды: %f миллисекунд = %.3f секунд\n", input, result);
                     }
 
                 }
@@ -927,22 +929,22 @@ public class Converter {
                     case 4 -> {
                         rate = 1E6;
                         result = input * rate;
-                        System.out.printf("Квадратные километры в Квадратные метры: %f кв.км = %.2f кв.м\n", input, result);
+                        System.out.printf("Квадратные километры в Квадратные метры: %f кв.км = %.0f кв.м\n", input, result);
                     }
                     case 5 -> {
                         rate = 1E8;
                         result = input * rate;
-                        System.out.printf("Квадратный километры в Квадратные дециметры: %f кв.км = %.2f кв.дм\n", input, result);
+                        System.out.printf("Квадратный километры в Квадратные дециметры: %f кв.км = %.0f кв.дм\n", input, result);
                     }
                     case 6 -> {
                         rate = 1E10;
                         result = input * rate;
-                        System.out.printf("Квадратные километры в Квадратные сантиметры: %f кв.км = %.2f кв.см\n", input, result);
+                        System.out.printf("Квадратные километры в Квадратные сантиметры: %f кв.км = %.0f кв.см\n", input, result);
                     }
                     case 7 -> {
                         rate = 1E12;
                         result = input * rate;
-                        System.out.printf("Квадратные километры в Квадратные миллиметры: %f кв.км = %.2f кв.мм\n", input, result);
+                        System.out.printf("Квадратные километры в Квадратные миллиметры: %f кв.км = %.0f кв.мм\n", input, result);
                     }
 
                 }
@@ -968,17 +970,17 @@ public class Converter {
                     case 5 -> {
                         rate = 1E6;
                         result = input * rate;
-                        System.out.printf("Гектары в квадратные дециметры: %f гектаров = %.2f кв.дм\n", input, result);
+                        System.out.printf("Гектары в квадратные дециметры: %f гектаров = %.0f кв.дм\n", input, result);
                     }
                     case 6 -> {
                         rate = 1E8;
                         result = input * rate;
-                        System.out.printf("Гектары в квадратные сантиметры: %f гектаров = %.2f кв.см\n", input, result);
+                        System.out.printf("Гектары в квадратные сантиметры: %f гектаров = %.0f кв.см\n", input, result);
                     }
                     case 7 -> {
                         rate = 1E10;
                         result = input * rate;
-                        System.out.printf("Гектары в квадратные миллиметры: %f гектаров = %.2f кв.мм\n", input, result);
+                        System.out.printf("Гектары в квадратные миллиметры: %f гектаров = %.0f кв.мм\n", input, result);
                     }
 
                 }
@@ -989,7 +991,7 @@ public class Converter {
                     case 1 -> {
                         rate = 1E-4;
                         result = input * rate;
-                        System.out.printf("Ары в квадратные километры: %f ар = %.2f кв.км\n", input, result);
+                        System.out.printf("Ары в квадратные километры: %f ар = %.4f кв.км\n", input, result);
                     }
                     case 2 -> {
                         rate = 0.01;
@@ -1009,12 +1011,12 @@ public class Converter {
                     case 6 -> {
                         rate = 1E6;
                         result = input * rate;
-                        System.out.printf("Ары в квадратные сантиметры: %f ар = %.2f кв.см\n", input, result);
+                        System.out.printf("Ары в квадратные сантиметры: %f ар = %.0f кв.см\n", input, result);
                     }
                     case 7 -> {
                         rate = 1E8;
                         result = input * rate;
-                        System.out.printf("Ары в квадратные миллиметры: %f ар = %.2f кв.мм\n", input, result);
+                        System.out.printf("Ары в квадратные миллиметры: %f ар = %.0f кв.мм\n", input, result);
                     }
 
                 }
@@ -1025,22 +1027,22 @@ public class Converter {
                     case 1 -> {
                         rate = 1E-6;
                         result = input * rate;
-                        System.out.printf("Квадратные метры в квадратные километры: %f кв.м = %.9f кв.км\n", input, result);
+                        System.out.printf("Квадратные метры в квадратные километры: %f кв.м = %.6f кв.км\n", input, result);
                     }
                     case 2 -> {
                         rate = 1E-4;
                         result = input * rate;
-                        System.out.printf("Квадратные метры в гектары: %f кв.м = %.7f гектаров\n", input, result);
+                        System.out.printf("Квадратные метры в гектары: %f кв.м = %.4f гектаров\n", input, result);
                     }
                     case 3 -> {
                         rate = 0.01;
                         result = input * rate;
-                        System.out.printf("Квадратные метры в ары: %f кв.м = %.4f ар\n", input, result);
+                        System.out.printf("Квадратные метры в ары: %f кв.м = %.2f ар\n", input, result);
                     }
                     case 5 -> {
                         rate = 10;
                         result = input * rate;
-                        System.out.printf("Квадратные метры в квадратные дециметры: %f кв.м = %.0f кв.дм\n", input, result);
+                        System.out.printf("Квадратные метры в квадратные дециметры: %f кв.м = %.2f кв.дм\n", input, result);
                     }
                     case 6 -> {
                         rate = 1E4;
@@ -1050,7 +1052,7 @@ public class Converter {
                     case 7 -> {
                         rate = 1E6;
                         result = input * rate;
-                        System.out.printf("Квадратные метры в квадратные миллиметры: %f кв.м = %.2f кв.мм\n", input, result);
+                        System.out.printf("Квадратные метры в квадратные миллиметры: %f кв.м = %.0f кв.мм\n", input, result);
                     }
 
                 }
@@ -1061,17 +1063,17 @@ public class Converter {
                     case 1 -> {
                         rate = 1E-8;
                         result = input * rate;
-                        System.out.printf("Квадратные дециметры в квадратные километры: %f кв.дм = %.2f кв.км\n", input, result);
+                        System.out.printf("Квадратные дециметры в квадратные километры: %f кв.дм = %.8f кв.км\n", input, result);
                     }
                     case 2 -> {
                         rate = 1E-6;
                         result = input * rate;
-                        System.out.printf("Квадратные дециметры в гектары: %f кв.дм = %.2f гектаров\n", input, result);
+                        System.out.printf("Квадратные дециметры в гектары: %f кв.дм = %.6f гектаров\n", input, result);
                     }
                     case 3 -> {
                         rate = 1E-4;
                         result = input * rate;
-                        System.out.printf("Квадратные дециметры в ары: %f кв.дм = %.2f ар\n", input, result);
+                        System.out.printf("Квадратные дециметры в ары: %f кв.дм = %.4f ар\n", input, result);
                     }
                     case 4 -> {
                         rate = 0.01;
@@ -1097,22 +1099,22 @@ public class Converter {
                     case 1 -> {
                         rate = 1E-10;
                         result = input * rate;
-                        System.out.printf("Квадратные сантиметры в квадратные километры: %f кв.см = %.2f кв.км\n", input, result);
+                        System.out.printf("Квадратные сантиметры в квадратные километры: %f кв.см = %.10f кв.км\n", input, result);
                     }
                     case 2 -> {
                         rate = 1E-8;
                         result = input * rate;
-                        System.out.printf("Квадратные сантиметры в гектары: %f кв.см = %.2f гектаров\n", input, result);
+                        System.out.printf("Квадратные сантиметры в гектары: %f кв.см = %.8f гектаров\n", input, result);
                     }
                     case 3 -> {
                         rate = 1E-6;
                         result = input * rate;
-                        System.out.printf("Квадратные сантиметры в ары: %f кв.см = %.2f ар\n", input, result);
+                        System.out.printf("Квадратные сантиметры в ары: %f кв.см = %.6f ар\n", input, result);
                     }
                     case 4 -> {
                         rate = 1E-4;
                         result = input * rate;
-                        System.out.printf("Квадратные сантиметры в квадратные метры: %f кв.см = %.2f кв.м\n", input, result);
+                        System.out.printf("Квадратные сантиметры в квадратные метры: %f кв.см = %.4f кв.м\n", input, result);
                     }
                     case 5 -> {
                         rate = 0.01;
@@ -1133,27 +1135,27 @@ public class Converter {
                     case 1 -> {
                         rate = 1E-12;
                         result = input * rate;
-                        System.out.printf("Квадратные миллиметры в квадратные километры: %f кв.мм = %.2f кв.км\n", input, result);
+                        System.out.printf("Квадратные миллиметры в квадратные километры: %f кв.мм = %.12f кв.км\n", input, result);
                     }
                     case 2 -> {
                         rate = 1E-10;
                         result = input * rate;
-                        System.out.printf("Квадратные миллиметры в гектары: %f кв.мм = %.2f гектаров\n", input, result);
+                        System.out.printf("Квадратные миллиметры в гектары: %f кв.мм = %.10f гектаров\n", input, result);
                     }
                     case 3 -> {
                         rate = 1E-8;
                         result = input * rate;
-                        System.out.printf("Квадратные миллиметры в ары: %f кв.мм = %.2f ар\n", input, result);
+                        System.out.printf("Квадратные миллиметры в ары: %f кв.мм = %.8f ар\n", input, result);
                     }
                     case 4 -> {
                         rate = 1E-6;
                         result = input * rate;
-                        System.out.printf("Квадратные миллиметры в квадратные метры: %f кв.мм = %.2f кв.м\n", input, result);
+                        System.out.printf("Квадратные миллиметры в квадратные метры: %f кв.мм = %.6f кв.м\n", input, result);
                     }
                     case 5 -> {
                         rate = 1E-4;
                         result = input * rate;
-                        System.out.printf("Квадратные миллиметры в квадратные децииметры: %f кв.мм = %.2f кв.дм\n", input, result);
+                        System.out.printf("Квадратные миллиметры в квадратные децииметры: %f кв.мм = %.4f кв.дм\n", input, result);
                     }
                     case 6 -> {
                         rate = 0.01;
@@ -1217,12 +1219,12 @@ public class Converter {
                     case 3 -> {
                         rate = 1000000;
                         result = input * rate;
-                        System.out.printf("Кубические метры в Кубические сантиметры: %f куб.м = %.2f куб.см\n", input, result);
+                        System.out.printf("Кубические метры в Кубические сантиметры: %f куб.м = %.0f куб.см\n", input, result);
                     }
                     case 4 -> {
                         rate = 1000000000;
                         result = input * rate;
-                        System.out.printf("Кубические метры в Кубические миллиметры: %f куб.м = %.2f куб.мм\n", input, result);
+                        System.out.printf("Кубические метры в Кубические миллиметры: %f куб.м = %.0f куб.мм\n", input, result);
                     }
                     case 5 -> {
                         rate = 1000;
@@ -1232,7 +1234,7 @@ public class Converter {
                     case 6 -> {
                         rate = 1000000;
                         result = input * rate;
-                        System.out.printf("Кубические метры в Миллилитры: %f куб.м = %.2f миллилитров\n", input, result);
+                        System.out.printf("Кубические метры в Миллилитры: %f куб.м = %.0f миллилитров\n", input, result);
                     }
                 }
             }
@@ -1242,7 +1244,7 @@ public class Converter {
                     case 1 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Кубические дециметры в Кубические метры: %f куб.дм = %.2f куб.м\n", input, result);
+                        System.out.printf("Кубические дециметры в Кубические метры: %f куб.дм = %.3f куб.м\n", input, result);
                     }
                     case 3 -> {
                         rate = 1000;
@@ -1252,7 +1254,7 @@ public class Converter {
                     case 4 -> {
                         rate = 1000000;
                         result = input * rate;
-                        System.out.printf("Кубические дециметры в Кубические миллиметры: %f куб.дм = %.2f куб.мм\n", input, result);
+                        System.out.printf("Кубические дециметры в Кубические миллиметры: %f куб.дм = %.0f куб.мм\n", input, result);
                     }
                     case 5 -> {
                         rate = 1;
@@ -1272,12 +1274,12 @@ public class Converter {
                     case 1 -> {
                         rate = 1e-6;
                         result = input * rate;
-                        System.out.printf("Кубические сантиметры в Кубические метры: %f куб.см = %.2f куб.м\n", input, result);
+                        System.out.printf("Кубические сантиметры в Кубические метры: %f куб.см = %.6f куб.м\n", input, result);
                     }
                     case 2 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Кубические сантиметры в Кубические дециметры: %f куб.см = %.2f куб.дм\n", input, result);
+                        System.out.printf("Кубические сантиметры в Кубические дециметры: %f куб.см = %.3f куб.дм\n", input, result);
                     }
                     case 4 -> {
                         rate = 1000;
@@ -1287,7 +1289,7 @@ public class Converter {
                     case 5 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Кубические сантиметры в Литры: %f куб.см = %.2f литров\n", input, result);
+                        System.out.printf("Кубические сантиметры в Литры: %f куб.см = %.3f литров\n", input, result);
                     }
                     case 6 -> {
                         rate = 1;
@@ -1302,27 +1304,27 @@ public class Converter {
                     case 1 -> {
                         rate = 1e-9;
                         result = input * rate;
-                        System.out.printf("Кубические миллиметры в Кубические метры: %f куб.мм = %.2f куб.м\n", input, result);
+                        System.out.printf("Кубические миллиметры в Кубические метры: %f куб.мм = %.9f куб.м\n", input, result);
                     }
                     case 2 -> {
                         rate = 1e-6;
                         result = input * rate;
-                        System.out.printf("Кубические миллиметры в Кубические дециметры: %f куб.мм = %.2f куб.дм\n", input, result);
+                        System.out.printf("Кубические миллиметры в Кубические дециметры: %f куб.мм = %.6f куб.дм\n", input, result);
                     }
                     case 3 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Кубические миллиметры в Кубические сантиметры: %f куб.мм = %.2f куб.см\n", input, result);
+                        System.out.printf("Кубические миллиметры в Кубические сантиметры: %f куб.мм = %.3f куб.см\n", input, result);
                     }
                     case 5 -> {
                         rate = 1e-6;
                         result = input * rate;
-                        System.out.printf("Кубические миллиметры в Литры: %f куб.мм = %.2f литров\n", input, result);
+                        System.out.printf("Кубические миллиметры в Литры: %f куб.мм = %.6f литров\n", input, result);
                     }
                     case 6 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Кубические миллиметры в Миллилитры: %f куб.мм = %.2f миллилитров\n", input, result);
+                        System.out.printf("Кубические миллиметры в Миллилитры: %f куб.мм = %.3f миллилитров\n", input, result);
                     }
                 }
             }
@@ -1332,7 +1334,7 @@ public class Converter {
                     case 1 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Литры в Кубические метры: %f литров = %.2f куб.м\n", input, result);
+                        System.out.printf("Литры в Кубические метры: %f литров = %.3f куб.м\n", input, result);
                     }
                     case 2 -> {
                         rate = 1;
@@ -1347,7 +1349,7 @@ public class Converter {
                     case 4 -> {
                         rate = 1000000;
                         result = input * rate;
-                        System.out.printf("Литры в Кубические миллиметры: %f литров = %.2f куб.мм\n", input, result);
+                        System.out.printf("Литры в Кубические миллиметры: %f литров = %.0f куб.мм\n", input, result);
                     }
                     case 6 -> {
                         rate = 1000;
@@ -1362,12 +1364,12 @@ public class Converter {
                     case 1 -> {
                         rate = 1e-6;
                         result = input * rate;
-                        System.out.printf("Миллилитры в Кубические метры: %f миллилитров = %.2f куб.м\n", input, result);
+                        System.out.printf("Миллилитры в Кубические метры: %f миллилитров = %.6f куб.м\n", input, result);
                     }
                     case 2 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Миллилитры в Кубические дециметры: %f миллилитров = %.2f куб.дм\n", input, result);
+                        System.out.printf("Миллилитры в Кубические дециметры: %f миллилитров = %.3f куб.дм\n", input, result);
                     }
                     case 3 -> {
                         rate = 1;
@@ -1382,7 +1384,7 @@ public class Converter {
                     case 5 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Миллилитры в Литры: %f миллилитров = %.2f литров\n", input, result);
+                        System.out.printf("Миллилитры в Литры: %f миллилитров = %.3f литров\n", input, result);
                     }
                 }
             }
@@ -1437,7 +1439,7 @@ public class Converter {
                     case 3 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("М/с в км/с: %f м/с = %.2f км/с\n", input, result);
+                        System.out.printf("М/с в км/с: %f м/с = %.3f км/с\n", input, result);
                     }
                 }
             }
@@ -1452,7 +1454,7 @@ public class Converter {
                     case 3 -> {
                         rate = 0.000277778;
                         result = input * rate;
-                        System.out.printf("км/ч в км/с: %f км/ч = %.2f км/с\n", input, result);
+                        System.out.printf("км/ч в км/с: %f км/ч = %.4f км/с\n", input, result);
                     }
                 }
             }//Километры в секунду во все велчины
@@ -1477,7 +1479,6 @@ public class Converter {
 
     public static void Temperature() {
 
-        double result = 0;
         System.out.println("Вы выбрали перевод единиц температуры");
         System.out.println("Используйте следующие коды для ввода выбранной единицы температуры:");
         System.out.println(" 1 - Градусы Цельсия  \n 2 - Градусы Фаренгейта \n 3 - Кельвины \n 4 - Завершить конвертацию единиц температуры \n");
@@ -1611,12 +1612,12 @@ public class Converter {
                     case 4 -> {
                         rate = 1000000;
                         result = input * rate;
-                        System.out.printf("Тонны в Граммы: %f тонн = %.2f г\n", input, result);
+                        System.out.printf("Тонны в Граммы: %f тонн = %.0f г\n", input, result);
                     }
                     case 5 -> {
                         rate = 1000000000;
                         result = input * rate;
-                        System.out.printf("Тонны в Миллиграммы: %f тонн = %.2f мг\n", input, result);
+                        System.out.printf("Тонны в Миллиграммы: %f тонн = %.0f мг\n", input, result);
                     }
                     case 6 -> {
                         rate = 2204.62;
@@ -1641,12 +1642,12 @@ public class Converter {
                     case 4 -> {
                         rate = 100000;
                         result = input * rate;
-                        System.out.printf("Центнеры в Граммы: %f центнеров = %.2f г\n", input, result);
+                        System.out.printf("Центнеры в Граммы: %f центнеров = %.0f г\n", input, result);
                     }
                     case 5 -> {
                         rate = 1e+8;
                         result = input * rate;
-                        System.out.printf("Центнеры в Миллиграммы: %f центнеров = %.2f мг\n", input, result);
+                        System.out.printf("Центнеры в Миллиграммы: %f центнеров = %.0f мг\n", input, result);
                     }
                     case 6 -> {
                         rate = 220.462;
@@ -1661,7 +1662,7 @@ public class Converter {
                     case 1 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Килограммы в Тонны: %f кг = %.2f тонн\n", input, result);
+                        System.out.printf("Килограммы в Тонны: %f кг = %.3f тонн\n", input, result);
                     }
                     case 2 -> {
                         rate = 0.01;
@@ -1676,7 +1677,7 @@ public class Converter {
                     case 5 -> {
                         rate = 1e+6;
                         result = input * rate;
-                        System.out.printf("Килограммы в Миллиграммы: %f кг = %.2f мг\n", input, result);
+                        System.out.printf("Килограммы в Миллиграммы: %f кг = %.0f мг\n", input, result);
                     }
                     case 6 -> {
                         rate = 2.20462;
@@ -1691,17 +1692,17 @@ public class Converter {
                     case 1 -> {
                         rate = 1e-6;
                         result = input * rate;
-                        System.out.printf("Граммы в Тонны: %f г = %.2f тонн\n", input, result);
+                        System.out.printf("Граммы в Тонны: %f г = %.6f тонн\n", input, result);
                     }
                     case 2 -> {
                         rate = 1e-5;
                         result = input * rate;
-                        System.out.printf("Граммы в Центнеры: %f г = %.2f центнеров\n", input, result);
+                        System.out.printf("Граммы в Центнеры: %f г = %.5f центнеров\n", input, result);
                     }
                     case 3 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Граммы в Килограммы: %f г = %.2f кг\n", input, result);
+                        System.out.printf("Граммы в Килограммы: %f г = %.3f кг\n", input, result);
                     }
                     case 5 -> {
                         rate = 1000;
@@ -1711,7 +1712,7 @@ public class Converter {
                     case 6 -> {
                         rate = 0.00220462;
                         result = input * rate;
-                        System.out.printf("Граммы в Фунты: %f г = %.2f фунтов\n", input, result);
+                        System.out.printf("Граммы в Фунты: %f г = %.3f фунтов\n", input, result);
                     }
                 }
             }
@@ -1721,27 +1722,27 @@ public class Converter {
                     case 1 -> {
                         rate = 1e-9;
                         result = input * rate;
-                        System.out.printf("Миллиграммы в Тонны: %f мг = %.2f тонн\n", input, result);
+                        System.out.printf("Миллиграммы в Тонны: %f мг = %.9f тонн\n", input, result);
                     }
                     case 2 -> {
                         rate = 1e-8;
                         result = input * rate;
-                        System.out.printf("Миллиграммы в Центнеры: %f мг = %.2f центнеров\n", input, result);
+                        System.out.printf("Миллиграммы в Центнеры: %f мг = %.8f центнеров\n", input, result);
                     }
                     case 3 -> {
                         rate = 1e-6;
                         result = input * rate;
-                        System.out.printf("Миллиграммы в Килограммы: %f мг = %.2f кг\n", input, result);
+                        System.out.printf("Миллиграммы в Килограммы: %f мг = %.6f кг\n", input, result);
                     }
                     case 4 -> {
                         rate = 0.001;
                         result = input * rate;
-                        System.out.printf("Миллиграммы в Граммы: %f мг = %.2f г\n", input, result);
+                        System.out.printf("Миллиграммы в Граммы: %f мг = %.3f г\n", input, result);
                     }
                     case 6 -> {
                         rate = 2.20462e-6;
                         result = input * rate;
-                        System.out.printf("Миллиграммы в Фунты: %f мг = %.2f фунтов\n", input, result);
+                        System.out.printf("Миллиграммы в Фунты: %f мг = %.6f фунтов\n", input, result);
                     }
                 }
             }
@@ -1751,12 +1752,12 @@ public class Converter {
                     case 1 -> {
                         rate = 0.000453592;
                         result = input * rate;
-                        System.out.printf("Фунты в Тонны: %f фунтов = %.2f тонн\n", input, result);
+                        System.out.printf("Фунты в Тонны: %f фунтов = %.4f тонн\n", input, result);
                     }
                     case 2 -> {
                         rate = 0.00453592;
                         result = input * rate;
-                        System.out.printf("Фунты в Центнеры: %f фунтов = %.2f центнеров\n", input, result);
+                        System.out.printf("Фунты в Центнеры: %f фунтов = %.3f центнеров\n", input, result);
                     }
                     case 3 -> {
                         rate = 0.453592;
@@ -1782,7 +1783,7 @@ public class Converter {
 
     public static void printInterface(){
         System.out.println("\n***********************************************************************************");
-        System.out.println("Используйте следующие коды для выбора величины для конвертации: \n 1 - Валюта \n 2 - Длина \n 3 - Время \n 4 - Площадь \n 5 - (Объём) \n 6 - Скорость \n 7 - Температура \n 8 - (Масса) \n 9 - Завершить программу \n");
+        System.out.println("Используйте следующие коды для выбора величины для конвертации: \n 1 - Валюта \n 2 - Длина \n 3 - Время \n 4 - Площадь \n 5 - Объём \n 6 - Скорость \n 7 - Температура \n 8 - Масса \n 9 - Завершить программу \n");
     }
 
     public static int getDimension(){
