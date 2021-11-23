@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Scanner;
+
 public class Converter {
     public static Scanner scanner = new Scanner(System.in);
 
@@ -14,6 +15,12 @@ public class Converter {
     static final int MAX_TEMPERATURE = 4;
     static final int MAX_WEIGHT = 7;
 
+    /**
+     * Method is used to get code of the dimension, that user wants to convert from
+     * @param MAX_CHOICE - maximum available code of the dimension
+     * @param MIN_CHOICE - minimal available code of the dimension
+     * @return the code of the dimension
+     */
     public static int getChoice(int MAX_CHOICE, int MIN_CHOICE) {
         int choice = 0;
         boolean isIncorrect;
@@ -35,6 +42,13 @@ public class Converter {
         return choice;
     }
 
+    /**
+     * Method is used to get code of the dimension, that user wants to convert to
+     * @param MAX_OUTPUT - maximum available code of the dimension
+     * @param MIN_OUTPUT - minimal available code of the dimension
+     * @param choice - is the code of the dimension, that user had chosen to convert from
+     * @return the code of the dimension
+     */
     public static int getOutput(int MAX_OUTPUT, int MIN_OUTPUT, int choice) {
         int output = 0;
         boolean isIncorrect;
@@ -60,6 +74,11 @@ public class Converter {
         return output;
     }
 
+    /**
+     * Method is used to get the sum of the chosen dimension, that user wants to convert
+     * @param inType - the name of the value of conversion
+     * @return the sum that is going to be converted
+     */
     public static double getInput(String inType) {
         double input = 0;
         boolean isIncorrect;
@@ -81,11 +100,12 @@ public class Converter {
         return input;
     }
 
-    public static double getResult(double rate, double input){
-        return input * rate;
-    }
 
-
+    /**
+     * Method is used to create an interface of the conversion of Currency, after user chooses the dimension Currency
+     * It calls getChoice, getInput, getOutput methods to get dimensions for conversion
+     * and calls an actual conversion method called convertCurrency
+     */
     public static void Currency() {
         char us_dollar_sym = 36;
         char pound_sym = 163;
@@ -128,11 +148,17 @@ public class Converter {
         double input = getInput(inType);
 
         //Конвертация величин
-        boolean isCorrect = convertCurrency(choice, output, input);
-        if (isCorrect)
-            System.out.print("");
+        convertCurrency(choice, output, input);
     }
 
+    /**
+     * Method is used to perform and process the actual conversion of Currency
+     * It is called by Currency method and given the following parameters
+     * @param choice - is the code of the dimension, that user had chosen to convert from
+     * @param output - is the code of the dimension, that user had chosen to convert to
+     * @param input - is the sum of conversion from choice to output
+     * @return true, if no exceptions appeared
+     */
     public static boolean convertCurrency(int choice, int output, double input){
         char us_dollar_sym = 36;
         char pound_sym = 163;
@@ -405,6 +431,11 @@ public class Converter {
     }
 
 
+    /**
+     * Method is used to create an interface of the conversion of Length, after user chooses the dimension Length
+     * It calls getChoice, getInput, getOutput methods to get dimensions for conversion
+     * and calls an actual conversion method called convertLength
+     */
     public static void Length() {
         // Интерфейс
         System.out.println("Вы выбрали перевод единиц длины");
@@ -440,6 +471,14 @@ public class Converter {
             System.out.print("");
     }
 
+    /**
+     * Method is used to perform and process the actual conversion of Length
+     * It is called by Currency method and given the following parameters
+     * @param choice - is the code of the dimension, that user had chosen to convert from
+     * @param output - is the code of the dimension, that user had chosen to convert to
+     * @param input - is the sum of conversion from choice to output
+     * @return true, if no exceptions appeared
+     */
     public static boolean convertLength(int choice, int output, double input){
         double result;
         double rate;
@@ -574,6 +613,11 @@ public class Converter {
     }
 
 
+    /**
+     * Method is used to create an interface of the conversion of Time, after user chooses the dimension Time
+     * It calls getChoice, getInput, getOutput methods to get dimensions for conversion
+     * and calls an actual conversion method called convertTime
+     */
     public static void Time() {
 
         // Интерфейс
@@ -612,6 +656,14 @@ public class Converter {
             System.out.print("");
     }
 
+    /**
+     * Method is used to perform and process the actual conversion of Time
+     * It is called by Currency method and given the following parameters
+     * @param choice - is the code of the dimension, that user had chosen to convert from
+     * @param output - is the code of the dimension, that user had chosen to convert to
+     * @param input - is the sum of conversion from choice to output
+     * @return true, if no exceptions appeared
+     */
     public static boolean convertTime(int choice, int output, double input){
         double rate;
         double result;
@@ -873,6 +925,11 @@ public class Converter {
     }
 
 
+    /**
+     * Method is used to create an interface of the conversion of Square, after user chooses the dimension Square
+     * It calls getChoice, getInput, getOutput methods to get dimensions for conversion
+     * and calls an actual conversion method called convertSquare
+     */
     public static void Square() {
         System.out.println("Вы выбрали перевод единиц площади");
         System.out.println("Используйте следующие коды для ввода выбранной единицы площади:");
@@ -909,6 +966,14 @@ public class Converter {
 
     }
 
+    /**
+     * Method is used to perform and process the actual conversion of Square
+     * It is called by Currency method and given the following parameters
+     * @param choice - is the code of the dimension, that user had chosen to convert from
+     * @param output - is the code of the dimension, that user had chosen to convert to
+     * @param input - is the sum of conversion from choice to output
+     * @return true, if no exceptions appeared
+     */
     public static boolean convertSquare(int choice, int output, double input){
         double rate;
         double result;
@@ -1170,6 +1235,11 @@ public class Converter {
     }
 
 
+    /**
+     * Method is used to create an interface of the conversion of Volume, after user chooses the dimension Volume
+     * It calls getChoice, getInput, getOutput methods to get dimensions for conversion
+     * and calls an actual conversion method called convertVolume
+     */
     public static void Volume() {
         System.out.println("Вы выбрали перевод единиц объёма");
         System.out.println("Используйте следующие коды для ввода выбранной единицы объёма:");
@@ -1204,6 +1274,14 @@ public class Converter {
             System.out.print("");
     }
 
+    /**
+     * Method is used to perform and process the actual conversion of Volume
+     * It is called by Currency method and given the following parameters
+     * @param choice - is the code of the dimension, that user had chosen to convert from
+     * @param output - is the code of the dimension, that user had chosen to convert to
+     * @param input - is the sum of conversion from choice to output
+     * @return true, if no exceptions appeared
+     */
     public static boolean convertVolume(int choice, int output, double input){
         double rate;
         double result;
@@ -1393,6 +1471,11 @@ public class Converter {
     }
 
 
+    /**
+     * Method is used to create an interface of the conversion of Speed, after user chooses the dimension Speed
+     * It calls getChoice, getInput, getOutput methods to get dimensions for conversion
+     * and calls an actual conversion method called convertSpeed
+     */
     public static void Speed() {
         System.out.println("Вы выбрали перевод единиц скорости");
         System.out.println("Используйте следующие коды для ввода выбранной единицы скорости:");
@@ -1419,11 +1502,19 @@ public class Converter {
         double input = getInput(inType);
 
         //Конвертация
-        boolean isCorrect = convertSquare(choice, output, input);
+        boolean isCorrect = convertSpeed(choice, output, input);
         if (isCorrect)
             System.out.print("");
     }
 
+    /**
+     * Method is used to perform and process the actual conversion of Speed
+     * It is called by Currency method and given the following parameters
+     * @param choice - is the code of the dimension, that user had chosen to convert from
+     * @param output - is the code of the dimension, that user had chosen to convert to
+     * @param input - is the sum of conversion from choice to output
+     * @return true, if no exceptions appeared
+     */
     public static boolean convertSpeed(int choice, int output, double input){
         double result;
         double rate;
@@ -1477,6 +1568,11 @@ public class Converter {
     }
 
 
+    /**
+     * Method is used to create an interface of the conversion of Temperature, after user chooses the dimension Temperature
+     * It calls getChoice, getInput, getOutput methods to get dimensions for conversion
+     * and calls an actual conversion method called convertTemperature
+     */
     public static void Temperature() {
 
         System.out.println("Вы выбрали перевод единиц температуры");
@@ -1510,6 +1606,14 @@ public class Converter {
             System.out.print("");
     }
 
+    /**
+     * Method is used to perform and process the actual conversion of Temperature
+     * It is called by Currency method and given the following parameters
+     * @param choice - is the code of the dimension, that user had chosen to convert from
+     * @param output - is the code of the dimension, that user had chosen to convert to
+     * @param input - is the sum of conversion from choice to output
+     * @return true, if no exceptions appeared
+     */
     public static boolean convertTemperature(int choice, int output, double input){
         double result;
         char grad = 176;
@@ -1558,6 +1662,11 @@ public class Converter {
     }
 
 
+    /**
+     * Method is used to create an interface of the conversion of Weight, after user chooses the dimension Weight
+     * It calls getChoice, getInput, getOutput methods to get dimensions for conversion
+     * and calls an actual conversion method called convertWeight
+     */
     public static void Weight() {
         System.out.println("Вы выбрали перевод единиц массы");
         System.out.println("Используйте следующие коды для ввода выбранной единицы массы:");
@@ -1592,6 +1701,14 @@ public class Converter {
             System.out.print("");
     }
 
+    /**
+     * Method is used to perform and process the actual conversion of Weight
+     * It is called by Currency method and given the following parameters
+     * @param choice - is the code of the dimension, that user had chosen to convert from
+     * @param output - is the code of the dimension, that user had chosen to convert to
+     * @param input - is the sum of conversion from choice to output
+     * @return true, if no exceptions appeared
+     */
     public static boolean convertWeight(int choice, int output, double input){
         double rate;
         double result;
@@ -1781,11 +1898,20 @@ public class Converter {
     }
 
 
+    /**
+     *  Method is used to create an interface of the beginning of the program
+     *  It offers to choose the dimension
+     *  getDimension method will use chosen code for later work of the program
+     */
     public static void printInterface(){
         System.out.println("\n***********************************************************************************");
         System.out.println("Используйте следующие коды для выбора величины для конвертации: \n 1 - Валюта \n 2 - Длина \n 3 - Время \n 4 - Площадь \n 5 - Объём \n 6 - Скорость \n 7 - Температура \n 8 - Масса \n 9 - Завершить программу \n");
     }
 
+    /**
+     * Method is used to get the code of the dimension for conversion
+     * @return choice - the code of the chosen dimension
+     */
     public static int getDimension(){
         boolean isIncorrect;
         int choice = 0;
@@ -1804,9 +1930,19 @@ public class Converter {
                 isIncorrect = true;
             }
         } while (isIncorrect);
-        return  choice;
+        return choice;
     }
 
+    /**
+     * This is the body of the program
+     * Method starts the program and greets the user
+     * It calls printInterface method to print the interface of choosing a dimension of conversion
+     * It gets this dimension from getDimension Method and, according to its value, calls one of the following methods:
+     * Currency(), Length(), Time(), Square(), Volume(), Speed(), Temperature(), Weight()
+     * Body of the method is looped, so as the conversion will continue until the users presses the code, that stops the program
+     * instead of choosing another dimension to convert
+     * @param args - regular parameter for main Method
+     */
     public static void main(String[] args) {
         System.out.println("Добро пожаловать в программу конвертации величин");
         boolean isTrue = true;
