@@ -3,7 +3,6 @@ package com.company;
 import java.text.MessageFormat;
 import java.util.Scanner;
 import static java.lang.System.out;
-//import static java.lang.System.err;
 
 public class Converter {
     public static final Scanner scanner = new Scanner(System.in);
@@ -472,9 +471,7 @@ public class Converter {
             case 3 -> inType = "Дециметры >> ";
             case 4 -> inType = "Сантиметры >> ";
             case 5 -> inType = "Миллиметры >> ";
-            default -> {
-                return;
-            }
+            default -> throw new IllegalStateException(WRONG_CODE);
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_LENGTH, MIN_ANYTHING, choice);
@@ -514,7 +511,7 @@ public class Converter {
         String cm1 = "см";
         String mm1 = "мм";
 
-        String text = "{0} в {1}: %f {2} = %.2f {3}\n";
+        String text = "{0} в {1}: %f {2} = %.6f {3}\n";
         switch (choice) {
             //Километр во все величины
             case 1 -> {
@@ -677,9 +674,7 @@ public class Converter {
             case 5 -> inType = "Минуты >> ";
             case 6 -> inType = "Секунды >> ";
             case 7 -> inType = "Миллисекунды >> ";
-            default -> {
-                return;
-            }
+            default -> throw new IllegalStateException(WRONG_CODE);
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_TIME, MIN_ANYTHING, choice);
@@ -723,7 +718,7 @@ public class Converter {
         String s1 = "секунд";
         String ms1 = "миллисекунд";
 
-        String text = "{0} в {1}: %f {2} = %.2f {3}\n";
+        String text = "{0} в {1}: %f {2} = %.11f {3}\n";
         switch (choice) {
             //Года во все величины
             case 1 -> {
@@ -1005,9 +1000,7 @@ public class Converter {
             case 5 -> inType = "Квадратные дециметры >> ";
             case 6 -> inType = "Квадратные сантиметры >> ";
             case 7 -> inType = "Квадратные миллиметры >> ";
-            default -> {
-                return;
-            }
+            default -> throw new IllegalStateException(WRONG_CODE);
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_SQUARE, MIN_ANYTHING, choice);
@@ -1052,7 +1045,7 @@ public class Converter {
         String cm1 = "кв.см";
         String mm1 = "кв.мм";
 
-        String text = "{0} в {1}: %f {2} = %.2f {3}\n";
+        String text = "{0} в {1}: %f {2} = %.12f {3}\n";
         switch (choice) {
             //Квадратные километры во все величины
             case 1 -> {
@@ -1335,9 +1328,7 @@ public class Converter {
             case 4 -> inType = "Кубические миллиметры >> ";
             case 5 -> inType = "Литры >> ";
             case 6 -> inType = "Миллилитры >> ";
-            default -> {
-                return;
-            }
+            default -> throw new IllegalStateException(WRONG_CODE);
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_VOLUME, MIN_ANYTHING, choice);
@@ -1378,7 +1369,7 @@ public class Converter {
         String l1 = "литров";
         String ml1 = "миллилитров";
 
-        String text = "{0} в {1}: %f {2} = %.2f {3}\n";
+        String text = "{0} в {1}: %f {2} = %.9f {3}\n";
         switch (choice) {
             //Кубические метры во все величины
             case 1 -> {
@@ -1590,9 +1581,7 @@ public class Converter {
             case 1 -> inType = "Метры в секунду >> ";
             case 2 -> inType = "Километры в час >> ";
             case 3 -> inType = "Километры в секунду >> ";
-            default -> {
-                return;
-            }
+            default -> throw new IllegalStateException(WRONG_CODE);
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_SPEED, MIN_ANYTHING, choice);
@@ -1624,7 +1613,7 @@ public class Converter {
         String km = "Км/ч";
         String kms = "Км/с";
 
-        String text = "{0} в {1}: %f {0} = %.2f {1}\n";
+        String text = "{0} в {1}: %f {0} = %.4f {1}\n";
         switch (choice) {
             //Метры в секунду во все величины
             case 1 -> {
@@ -1699,9 +1688,7 @@ public class Converter {
             case 1 -> inType = "Градусы Цельсия >> ";
             case 2 -> inType = "Градусы Фаренгейта >> ";
             case 3 -> inType = "Кельвины >> ";
-            default -> {
-                return;
-            }
+            default -> throw new IllegalStateException(WRONG_CODE);
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_TEMPERATURE, MIN_ANYTHING, choice);
@@ -1808,9 +1795,7 @@ public class Converter {
             case 4 -> inType = "Граммы >> ";
             case 5 -> inType = "Миллиграммы >> ";
             case 6 -> inType = "Фунты >> ";
-            default -> {
-                return;
-            }
+            default -> throw new IllegalStateException(WRONG_CODE);
         }
         //Ввод второй величины и проверка
         int output = getOutput(MAX_WEIGHT, MIN_ANYTHING, choice);
@@ -1852,7 +1837,7 @@ public class Converter {
         String mg1 = "мг";
         String f1 = "фунтов";
 
-        String text = "{0} в {1}: %f {2} = %.2f {3}\n";
+        String text = "{0} в {1}: %f {2} = %.9f {3}\n";
         switch (choice) {
             //Тонны во все величины
             case 1 -> {
@@ -2044,7 +2029,6 @@ public class Converter {
         }
         return true;
     }
-
 
     /**
      *  Method is used to create an interface of the beginning of the program
