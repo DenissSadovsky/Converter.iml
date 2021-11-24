@@ -501,6 +501,20 @@ public class Converter {
     public static boolean convertLength(int choice, int output, double input){
         double result;
         double rate;
+
+        String km = "Километр";
+        String m = "Метр";
+        String dm = "Дециметр";
+        String cm = "Сантиметр";
+        String mm = "Миллиметр";
+
+        String km1 = "км";
+        String m1 = "м";
+        String dm1 = "дцм";
+        String cm1 = "см";
+        String mm1 = "мм";
+
+        String Text = "{0} в {1}: %f {2} = %.2f {3}\n";
         switch (choice) {
             //Километр во все величины
             case 1 -> {
@@ -508,22 +522,22 @@ public class Converter {
                     case 2 -> {
                         rate = 1000;
                         result = input * rate;
-                        out.printf("Километр в метр: %f км = %.2f м\n", input, result);
+                        out.printf(MessageFormat.format(Text, km, m, km1, m1), input, result);
                     }
                     case 3 -> {
                         rate = 10000;
                         result = input * rate;
-                        out.printf("Километр в дециметр: %f км = %.0f дм\n", input, result);
+                        out.printf(MessageFormat.format(Text, km, dm, km1, dm1), input, result);
                     }
                     case 4 -> {
                         rate = 100000;
                         result = input * rate;
-                        out.printf("Километр в сантиметр: %f км = %.0f см\n", input, result);
+                        out.printf(MessageFormat.format(Text, km, cm, km1, cm1), input, result);
                     }
                     case 5 -> {
                         rate = 1000000;
                         result = input * rate;
-                        out.printf("Километр в миллиметр: %f км = %.0f мм\n", input, result);
+                        out.printf(MessageFormat.format(Text, km, mm, km1, mm1), input, result);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
@@ -534,22 +548,22 @@ public class Converter {
                     case 1 -> {
                         rate = 0.001;
                         result = input * rate;
-                        out.printf("Метр в километр: %f м = %.3f км\n", input, result);
+                        out.printf(MessageFormat.format(Text, m, km, m1, km1), input, result);
                     }
                     case 3 -> {
                         rate = 10;
                         result = input * rate;
-                        out.printf("Метр в дециметр: %f м = %.2f дцм\n", input, result);
+                        out.printf(MessageFormat.format(Text, m, dm, m1, dm1), input, result);
                     }
                     case 4 -> {
                         rate = 100;
                         result = input * rate;
-                        out.printf("Метр в сантиметр: %f м = %.2f см\n", input, result);
+                        out.printf(MessageFormat.format(Text, m, cm, m1, cm1), input, result);
                     }
                     case 5 -> {
                         rate = 1000;
                         result = input * rate;
-                        out.printf("Метр в миллиметр: %f м = %.2f мм\n", input, result);
+                        out.printf(MessageFormat.format(Text, m, mm, m1, mm1), input, result);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
@@ -560,22 +574,22 @@ public class Converter {
                     case 1 -> {
                         rate = 0.0001;
                         result = input * rate;
-                        out.printf("Дециметр в километр: %f дцм = %.4f км\n", input, result);
+                        out.printf(MessageFormat.format(Text, dm, km, dm1, km1), input, result);
                     }
                     case 2 -> {
                         rate = 0.1;
                         result = input * rate;
-                        out.printf("Дециметр в метр: %f дцм = %.2f м\n", input, result);
+                        out.printf(MessageFormat.format(Text, dm, m, dm1, m1), input, result);
                     }
                     case 4 -> {
                         rate = 10;
                         result = input * rate;
-                        out.printf("Дециметр в сантиметр: %f дцм = %.2f см\n", input, result);
+                        out.printf(MessageFormat.format(Text, dm, cm, dm1, cm1), input, result);
                     }
                     case 5 -> {
                         rate = 100;
                         result = input * rate;
-                        out.printf("Дециметр в миллиметр: %f дцм = %.2f мм\n", input, result);
+                        out.printf(MessageFormat.format(Text, dm, mm, dm1, mm1), input, result);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
@@ -586,22 +600,22 @@ public class Converter {
                     case 1 -> {
                         rate = 0.00001;
                         result = input * rate;
-                        out.printf("Сантиметр в километр: %f см = %.5f км\n", input, result);
+                        out.printf(MessageFormat.format(Text, cm, km, cm1, km1), input, result);
                     }
                     case 2 -> {
                         rate = 0.01;
                         result = input * rate;
-                        out.printf("Сантиметр в метр: %f см = %.2f м\n", input, result);
+                        out.printf(MessageFormat.format(Text, cm, m, cm1, m1), input, result);
                     }
                     case 3 -> {
                         rate = 0.1;
                         result = input * rate;
-                        out.printf("Сантиметр в децииметр: %f см = %.2f дцм\n", input, result);
+                        out.printf(MessageFormat.format(Text, cm, dm, cm1, dm1), input, result);
                     }
                     case 5 -> {
                         rate = 10;
                         result = input * rate;
-                        out.printf("Сантиметр в миллиметр: %f см = %.2f мм\n", input, result);
+                        out.printf(MessageFormat.format(Text, cm, mm, cm1, mm1), input, result);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
@@ -612,22 +626,22 @@ public class Converter {
                     case 1 -> {
                         rate = 0.000001;
                         result = input * rate;
-                        out.printf("Миллиметр в километр: %f мм = %.6f км\n", input, result);
+                        out.printf(MessageFormat.format(Text, mm, km, mm1, km1), input, result);
                     }
                     case 2 -> {
                         rate = 0.001;
                         result = input * rate;
-                        out.printf("Миллиметр в метр: %f мм = %.3f м\n", input, result);
+                        out.printf(MessageFormat.format(Text, mm, m, mm1, m1), input, result);
                     }
                     case 3 -> {
                         rate = 0.01;
                         result = input * rate;
-                        out.printf("Миллиметр в децииметр: %f мм = %.2f дцм\n", input, result);
+                        out.printf(MessageFormat.format(Text, mm, dm, mm1, dm1), input, result);
                     }
                     case 4 -> {
                         rate = 0.1;
                         result = input * rate;
-                        out.printf("Миллиметр в сантиметр: %f мм = %.2f см\n", input, result);
+                        out.printf(MessageFormat.format(Text, mm, cm, mm1, cm1), input, result);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
