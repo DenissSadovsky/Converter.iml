@@ -1728,17 +1728,27 @@ public class Converter {
     public static boolean convertTemperature(int choice, int output, double input){
         double result;
         char grad = 176;
+
+        String c = "Градусы Цельсия";
+        String f = "Градусы Фаренгейта";
+        String k = "Кельвины";
+
+        String c1 = "C";
+        String f1 = "F";
+        String k1 = "K";
+
+        String text = "{0} в {1}: %f %s{2} = %.2f %s{3}\n";
         switch (choice) {
             //Градусы Цельсия во все величины
             case 1 -> {
                 switch (output) {
                     case 2 -> {
                         result = (input * 9 / 5) + 32;
-                        out.printf("Градусы Цельсия в Градусы Фаренгейта: %f %sC = %.2f %sF\n", input, grad, result, grad);
+                        out.printf(MessageFormat.format(text, c, f, c1, f1), input, grad, result, grad);
                     }
                     case 3 -> {
                         result = input + 273.15;
-                        out.printf("Градусы Цельсия в Кельвины: %f %sC = %.2f K\n", input, grad, result);
+                        out.printf(MessageFormat.format(text, c, k, c1, k1), input, grad, result, grad);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
@@ -1748,11 +1758,11 @@ public class Converter {
                 switch (output) {
                     case 1 -> {
                         result = (input - 32) * 5 / 9;
-                        out.printf("Градусы Фаренгейта в Градусы Цельсия: %f %sF = %.2f %sC\n", input, grad, result, grad);
+                        out.printf(MessageFormat.format(text, f, c, f1, c1), input, grad, result, grad);
                     }
                     case 3 -> {
                         result = (input - 32) * 5 / 9 + 273.15;
-                        out.printf("Градусы Фаренгейта в Кельвины: %f %sF = %.2f K\n", input, grad, result);
+                        out.printf(MessageFormat.format(text, f, k, f1, k1), input, grad, result, grad);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
@@ -1762,11 +1772,11 @@ public class Converter {
                 switch (output) {
                     case 1 -> {
                         result = input - 273.15;
-                        out.printf("Кельвины в Градусы Цельсия: %f K = %.2f %sC\n", input, result, grad);
+                        out.printf(MessageFormat.format(text, k, c, k1, c1), input, grad, result, grad);
                     }
                     case 2 -> {
                         result = (input - 273.15) * 9 / 5 + 32;
-                        out.printf("Кельвины в Градусы Фаренгейта: %f K= %.2f %sF\n", input, result, grad);
+                        out.printf(MessageFormat.format(text, k, f, k1, f1), input, grad, result, grad);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
@@ -1827,6 +1837,22 @@ public class Converter {
     public static boolean convertWeight(int choice, int output, double input){
         double rate;
         double result;
+
+        String t = "Тонны";
+        String c = "Центнеры";
+        String kg = "Килограммы";
+        String g = "Граммы";
+        String mg = "Миллиграммы";
+        String f = "Фунты";
+
+        String t1 = "тонн";
+        String c1 = "центнеров";
+        String kg1 = "кг";
+        String g1 = "г";
+        String mg1 = "мг";
+        String f1 = "фунтов";
+
+        String text = "{0} в {1}: %f {2} = %.2f {3}\n";
         switch (choice) {
             //Тонны во все величины
             case 1 -> {
@@ -1834,27 +1860,27 @@ public class Converter {
                     case 2 -> {
                         rate = 10;
                         result = input * rate;
-                        out.printf("Тонны в Центнеры: %f тонн = %.2f центнеров\n", input, result);
+                        out.printf(MessageFormat.format(text, t, c, t1, c1), input, result);
                     }
                     case 3 -> {
                         rate = 1000;
                         result = input * rate;
-                        out.printf("Тонны в Килограммы: %f тонн = %.2f кг\n", input, result);
+                        out.printf(MessageFormat.format(text, t, kg, t1, kg1), input, result);
                     }
                     case 4 -> {
                         rate = 1000000;
                         result = input * rate;
-                        out.printf("Тонны в Граммы: %f тонн = %.0f г\n", input, result);
+                        out.printf(MessageFormat.format(text, t, g, t1, g1), input, result);
                     }
                     case 5 -> {
                         rate = 1000000000;
                         result = input * rate;
-                        out.printf("Тонны в Миллиграммы: %f тонн = %.0f мг\n", input, result);
+                        out.printf(MessageFormat.format(text, t, mg, t1, mg1), input, result);
                     }
                     case 6 -> {
                         rate = 2204.62;
                         result = input * rate;
-                        out.printf("Тонны в Фунты: %f тонн = %.2f фунтов\n", input, result);
+                        out.printf(MessageFormat.format(text, t, f, t1, f1), input, result);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
@@ -1865,27 +1891,27 @@ public class Converter {
                     case 1 -> {
                         rate = 0.1;
                         result = input * rate;
-                        out.printf("Центнеры в Тонны: %f центнеров = %.2f тонн\n", input, result);
+                        out.printf(MessageFormat.format(text, c, t, c1, t1), input, result);
                     }
                     case 3 -> {
                         rate = 100;
                         result = input * rate;
-                        out.printf("Центнеры в Килограммы: %f центнеров = %.2f кг\n", input, result);
+                        out.printf(MessageFormat.format(text, c, kg, c1, kg1), input, result);
                     }
                     case 4 -> {
                         rate = 100000;
                         result = input * rate;
-                        out.printf("Центнеры в Граммы: %f центнеров = %.0f г\n", input, result);
+                        out.printf(MessageFormat.format(text, c, g, c1, g1), input, result);
                     }
                     case 5 -> {
                         rate = 1e+8;
                         result = input * rate;
-                        out.printf("Центнеры в Миллиграммы: %f центнеров = %.0f мг\n", input, result);
+                        out.printf(MessageFormat.format(text, c, mg, c1, mg1), input, result);
                     }
                     case 6 -> {
                         rate = 220.462;
                         result = input * rate;
-                        out.printf("Центнеры в Фунты: %f центнеров = %.2f фунтов\n", input, result);
+                        out.printf(MessageFormat.format(text, c, f, c1, f1), input, result);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
@@ -1896,27 +1922,27 @@ public class Converter {
                     case 1 -> {
                         rate = 0.001;
                         result = input * rate;
-                        out.printf("Килограммы в Тонны: %f кг = %.3f тонн\n", input, result);
+                        out.printf(MessageFormat.format(text, kg, t, kg1, t1), input, result);
                     }
                     case 2 -> {
                         rate = 0.01;
                         result = input * rate;
-                        out.printf("Килограммы в Центнеры: %f кг = %.2f центнеров\n", input, result);
+                        out.printf(MessageFormat.format(text, kg, c, kg1, c1), input, result);
                     }
                     case 4 -> {
                         rate = 1000;
                         result = input * rate;
-                        out.printf("Килограммы в Граммы: %f кг = %.2f г\n", input, result);
+                        out.printf(MessageFormat.format(text, kg, g, kg1, g1), input, result);
                     }
                     case 5 -> {
                         rate = 1e+6;
                         result = input * rate;
-                        out.printf("Килограммы в Миллиграммы: %f кг = %.0f мг\n", input, result);
+                        out.printf(MessageFormat.format(text, kg, mg, kg1, mg1), input, result);
                     }
                     case 6 -> {
                         rate = 2.20462;
                         result = input * rate;
-                        out.printf("Килограммы в Фунты: %f кг = %.2f фунтов\n", input, result);
+                        out.printf(MessageFormat.format(text, kg, f, kg1, f1), input, result);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
@@ -1927,27 +1953,27 @@ public class Converter {
                     case 1 -> {
                         rate = 1e-6;
                         result = input * rate;
-                        out.printf("Граммы в Тонны: %f г = %.6f тонн\n", input, result);
+                        out.printf(MessageFormat.format(text, g, t, g1, t1), input, result);
                     }
                     case 2 -> {
                         rate = 1e-5;
                         result = input * rate;
-                        out.printf("Граммы в Центнеры: %f г = %.5f центнеров\n", input, result);
+                        out.printf(MessageFormat.format(text, g, c, g1, c1), input, result);
                     }
                     case 3 -> {
                         rate = 0.001;
                         result = input * rate;
-                        out.printf("Граммы в Килограммы: %f г = %.3f кг\n", input, result);
+                        out.printf(MessageFormat.format(text, g, kg, g1, kg1), input, result);
                     }
                     case 5 -> {
                         rate = 1000;
                         result = input * rate;
-                        out.printf("Граммы в Миллиграммы: %f г = %.2f мг\n", input, result);
+                        out.printf(MessageFormat.format(text, g, mg, g1, mg1), input, result);
                     }
                     case 6 -> {
                         rate = 0.00220462;
                         result = input * rate;
-                        out.printf("Граммы в Фунты: %f г = %.3f фунтов\n", input, result);
+                        out.printf(MessageFormat.format(text, g, f, g1, f1), input, result);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
@@ -1958,27 +1984,27 @@ public class Converter {
                     case 1 -> {
                         rate = 1e-9;
                         result = input * rate;
-                        out.printf("Миллиграммы в Тонны: %f мг = %.9f тонн\n", input, result);
+                        out.printf(MessageFormat.format(text, mg, t, mg1, t1), input, result);
                     }
                     case 2 -> {
                         rate = 1e-8;
                         result = input * rate;
-                        out.printf("Миллиграммы в Центнеры: %f мг = %.8f центнеров\n", input, result);
+                        out.printf(MessageFormat.format(text, mg, c, mg1, c1), input, result);
                     }
                     case 3 -> {
                         rate = 1e-6;
                         result = input * rate;
-                        out.printf("Миллиграммы в Килограммы: %f мг = %.6f кг\n", input, result);
+                        out.printf(MessageFormat.format(text, mg, kg, mg1, kg1), input, result);
                     }
                     case 4 -> {
                         rate = 0.001;
                         result = input * rate;
-                        out.printf("Миллиграммы в Граммы: %f мг = %.3f г\n", input, result);
+                        out.printf(MessageFormat.format(text, mg, g, mg1, g1), input, result);
                     }
                     case 6 -> {
                         rate = 2.20462e-6;
                         result = input * rate;
-                        out.printf("Миллиграммы в Фунты: %f мг = %.6f фунтов\n", input, result);
+                        out.printf(MessageFormat.format(text, mg, f, mg1, f1), input, result);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
@@ -1989,27 +2015,27 @@ public class Converter {
                     case 1 -> {
                         rate = 0.000453592;
                         result = input * rate;
-                        out.printf("Фунты в Тонны: %f фунтов = %.4f тонн\n", input, result);
+                        out.printf(MessageFormat.format(text, f, t, f1, t1), input, result);
                     }
                     case 2 -> {
                         rate = 0.00453592;
                         result = input * rate;
-                        out.printf("Фунты в Центнеры: %f фунтов = %.3f центнеров\n", input, result);
+                        out.printf(MessageFormat.format(text, f, c, f1, c1), input, result);
                     }
                     case 3 -> {
                         rate = 0.453592;
                         result = input * rate;
-                        out.printf("Фунты в Килограммы: %f фунтов = %.2f кг\n", input, result);
+                        out.printf(MessageFormat.format(text, f, kg, f1, kg1), input, result);
                     }
                     case 4 -> {
                         rate = 453.592;
                         result = input * rate;
-                        out.printf("Фунты в Граммы: %f фунтов = %.2f г\n", input, result);
+                        out.printf(MessageFormat.format(text, f, g, f1, g1), input, result);
                     }
                     case 5 -> {
                         rate = 453592;
                         result = input * rate;
-                        out.printf("Фунты в Миллиграммы: %f фунтов = %.2f мг\n", input, result);
+                        out.printf(MessageFormat.format(text, f, mg, f1, mg1), input, result);
                     }
                     default -> throw new IllegalStateException(WRONG_CODE);
                 }
